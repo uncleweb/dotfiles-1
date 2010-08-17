@@ -7,8 +7,11 @@ elif [[ $OSTYPE == "darwin10.0" ]]; then
 #    PS1="[\t][\u@\h:\w]\$ "
     export CLICOLOR=1
     export LSCOLORS exfxcxdxbxegebabagacad
-fi
 
+    alias md5='md5 -r'
+    alias md5sum='md5 -5'
+
+fi
 
 # Color names:
 # base on http://pastie.org/154354
@@ -90,4 +93,18 @@ unset   rgb_restore   \
         rgb_white     \
         rgb_std       \
         rgb_usr
+
+
+# Homebrew for Mac OS X.
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+# MacPorts for Mac OS X.
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
+
+
+# Path environment variable extensions.
 
