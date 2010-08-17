@@ -108,3 +108,5 @@ fi
 
 # Path environment variable extensions.
 
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
