@@ -2,4 +2,6 @@
 
 PWD=`pwd`
 
-ln -s ${PWD}/.profile ~/.profile
+ln -s ${PWD}/profile ${HOME}/.profile
+ln -s ${PWD}/vimrc ${HOME}/.vimrc
+
