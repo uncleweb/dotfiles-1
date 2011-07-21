@@ -96,8 +96,10 @@ unset   rgb_restore   \
 
 
 # Homebrew for Mac OS X.
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+if command -v 'brew' &>/dev/null; then
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+    fi
 fi
 
 # MacPorts for Mac OS X.
