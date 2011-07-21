@@ -105,8 +105,50 @@ if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
 
+if [ -f $HOME/.path_environment ]; then
+    . $HOME/.path_environment
+fi
+
+
+# GNUPG configuration
+# Script for ensuring only one instance of gpg-agent is running
+# and if there is not one, start an instance of gpg-agent.
+#if test -f $HOME/.gpg-agent-info && kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
+#	GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info`
+#	SSH_AUTH_SOCK=`cat $HOME/.ssh-auth-sock`
+#	SSH_AGENT_PID=`cat $HOME/.ssh-agent-pid`
+#	export GPG_AGENT_INFO SSH_AUTH_SOCK SSH_AGENT_PID
+#else
+#	eval `gpg-agent --daemon`
+#	echo $GPG_AGENT_INFO >$HOME/.gpg-agent-info
+#	echo $SSH_AUTH_SOCK > $HOME/.ssh-auth-sock
+#	echo $SSH_AGENT_PID > $HOME/.ssh-agent-pid
+#fi
+# Imperative that this environment variable always reflects the output
+# of the tty command.
+#GPG_TTY=`tty`
+#export GPG_TTY
+
+# END GNUPG configuration
+
+
+# Aliases
+alias diffmate='git diff | mate'
 
 # Path environment variable extensions.
+appengine_bin=$HOME/Applications/google_appengine
+python_bin=/usr/local/Cellar/python/2.7.1/bin:/usr/local/bin:/usr/local/sbin
+ruby_bin=/usr/local/Cellar/ruby/1.9.2-p136/bin:/usr/local/Cellar/ruby/1.9.2-p180/bin
+node_bin=$HOME/.node_libraries/uglify-js/bin
+go_bin=$HOME/Applications/go/bin
+pypy_bin=$HOME/Applications/pypy/bin
+emacs_bin=$HOME/.emacs.d/bin
+base_bin=/usr/local/bin:/usr/local/sbin
+python3_bin=/usr/local/Cellar/python3/3.2/bin
+home_bin=$HOME/Applications/bin
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$home_bin:$python_bin:$python3_bin:$ruby_bin:$node_bin:$go_bin:$pypy_bin:$emacs_bin:$appengine_bin:$base_bin:$PATH
+
+ulimit -n 10000
+
 
