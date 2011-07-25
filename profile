@@ -151,6 +151,15 @@ home_bin=$HOME/Applications/bin
 
 export PATH=$home_bin:$python_bin:$python3_bin:$ruby_bin:$node_bin:$go_bin:$pypy_bin:$emacs_bin:$appengine_bin:$base_bin:$PATH
 
+# Other environment variables.
+export GOROOT=$HOME/Applications/go
+export GOOS=darwin
+export GOARCH=amd64
+export GOBIN=$GOROOT/bin
+
+
 ulimit -n 10000
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
