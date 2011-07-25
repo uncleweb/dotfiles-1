@@ -20,3 +20,7 @@ attend = diff,status,log,qdiff,blame,annotate,pdiff,glog
 [diff]
 git = True
 
+[git]
+intree = true
+
+
