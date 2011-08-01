@@ -1,0 +1,20 @@
+[user]
+	name = Gora Khargosh
+	email = gora.khargosh@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+        interactive = auto
+[alias]
+	unstage = reset HEAD
+	s = status -s
+	c = commit -s
+        co = checkout
+        br = branch
+        changelog = log --pretty='format:* %s'
+        
+[core]
+	excludesfile = /Users/gorakhargosh/.gitignore_global
+	quotepath = false
+
