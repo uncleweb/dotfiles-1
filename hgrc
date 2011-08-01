@@ -1,7 +1,13 @@
 [ui]
-username = Gora Khargosh <gora.khargosh@gmail.com>
+username = Yesudeep Mangalapilly <yesudeep@gmail.com>
 ignore = /Users/gorakhargosh/.hgignore_global
-logtemplate = "\033[33mchangeset:{rev}:{node|short}\033[0m\n{branches}{tags}{parents}user:{author}\ndate:{date|date}\n{files}{file_copies}description:\n{desc|strip}\n\n\n"
+#logtemplate = "\033[33mchangeset:{rev}:{node|short}\033[0m\n{branches}{tags}{parents}user:{author}\ndate:{date|date}\n{files}{file_copies}description:\n{desc|strip}\n\n\n"
+editor=emacs -nw
+
+logtemplate = "changeset:   {rev}:{node}\ntag:         {tags}\nuser:        {author}\ndate:        {date|date}\nfiles:       {files}{file_copies}\ndescription: {desc|strip}\n\n\n"
+
+[defaults]
+qnew = -Ue
 
 [extensions]
 color =
@@ -19,6 +25,8 @@ attend = diff,status,log,qdiff,blame,annotate,pdiff,glog
 
 [diff]
 git = True
+showfunc = 1
+unified = 8
 
 [git]
 intree = true
