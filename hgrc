@@ -1,6 +1,6 @@
 [ui]
-username = Yesudeep Mangalapilly <yesudeep@gmail.com>
-ignore = /Users/gorakhargosh/.hgignore_global
+username = Yesudeep Mangalapilly <yesudeep@google.com>
+ignore = /Users/yesudeep/.hgignore_global
 #logtemplate = "\033[33mchangeset:{rev}:{node|short}\033[0m\n{branches}{tags}{parents}user:{author}\ndate:{date|date}\n{files}{file_copies}description:\n{desc|strip}\n\n\n"
 editor=emacs -nw
 
@@ -31,4 +31,6 @@ unified = 8
 [git]
 intree = true
 
+[web]
+cacerts = /etc/hg-dummy-cert.pem
 
