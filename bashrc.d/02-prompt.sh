@@ -42,6 +42,7 @@ function is_submodule() {
     return 1
 }
 
+
 function parse_git_branch {
     git show > /dev/null 2>&1 || return
     P=
@@ -64,7 +65,13 @@ function parse_git_branch {
     DESC="d:"$(git describe 2> /dev/null) || DESC=""
     P=$P${DESC:+${P:+ }${DESC}}
 
-    echo "git(${P}) "
+    # https://github.com/blog/297-dirty-git-state-in-your-prompt
+    DIRTY=
+    if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]; then
+        DIRTY="*"
+    fi
+
+    echo "${DIRTY}git(${P}) "
 }
 
 # function parse_git_branch {
