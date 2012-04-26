@@ -102,12 +102,15 @@ function proml {
 
   local rgb_std="${rgb_white}"
 
+  local format_bold='\[\e[1m\]'
+
   if [ `id -u` -eq 0 ]
   then
       local rgb_usr="${rgb_red}"
   else
       local rgb_usr="${rgb_forest}"
   fi
+
 
   case $TERM in
     xterm*)
