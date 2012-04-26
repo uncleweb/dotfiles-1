@@ -15,7 +15,10 @@
 # limitations under the License.
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
-
+#
+# Based on:
+# 1. https://github.com/thomasvs/bash-prompt-git/blob/master/git
+# 2. http://jonmaddox.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 
 function is_submodule() {
     local git_dir parent_git module_name path strip
@@ -61,7 +64,7 @@ function parse_git_branch {
     DESC="d:"$(git describe 2> /dev/null) || DESC=""
     P=$P${DESC:+${P:+ }${DESC}}
 
-    echo "(${P}) "
+    echo "git(${P}) "
 }
 
 # function parse_git_branch {
@@ -69,13 +72,43 @@ function parse_git_branch {
 # }
 
 function proml {
-  local        BLUE="\[\033[0;34m\]"
-  local         RED="\[\033[0;31m\]"
-  local   LIGHT_RED="\[\033[1;31m\]"
-  local       GREEN="\[\033[0;32m\]"
-  local LIGHT_GREEN="\[\033[1;32m\]"
-  local       WHITE="\[\033[1;37m\]"
-  local  LIGHT_GRAY="\[\033[0;37m\]"
+  # local        BLUE="\[\033[0;34m\]"
+  # local         RED="\[\033[0;31m\]"
+  # local   LIGHT_RED="\[\033[1;31m\]"
+  # local       GREEN="\[\033[0;32m\]"
+  # local LIGHT_GREEN="\[\033[1;32m\]"
+  # local       WHITE="\[\033[1;37m\]"
+  # local  LIGHT_GRAY="\[\033[0;37m\]"
+
+  # Color names:
+  # base on http://pastie.org/154354
+  # color_name='\[\033[ color_code m\]'
+  local rgb_restore='\[\033[00m\]'
+  local rgb_black='\[\033[00;30m\]'
+  local rgb_firebrick='\[\033[00;31m\]'
+  local rgb_red='\[\033[01;31m\]'
+  local rgb_forest='\[\033[00;32m\]'
+  local rgb_green='\[\033[01;32m\]'
+  local rgb_brown='\[\033[00;33m\]'
+  local rgb_yellow='\[\033[01;33m\]'
+  local rgb_navy='\[\033[00;34m\]'
+  local rgb_blue='\[\033[01;34m\]'
+  local rgb_purple='\[\033[00;35m\]'
+  local rgb_magenta='\[\033[01;35m\]'
+  local rgb_cadet='\[\033[00;36m\]'
+  local rgb_cyan='\[\033[01;36m\]'
+  local rgb_gray='\[\033[00;37m\]'
+  local rgb_white='\[\033[01;37m\]'
+
+  local rgb_std="${rgb_white}"
+
+  if [ `id -u` -eq 0 ]
+  then
+      local rgb_usr="${rgb_red}"
+  else
+      local rgb_usr="${rgb_forest}"
+  fi
+
   case $TERM in
     xterm*)
     TITLEBAR='\[\033]0;\u@\h:\w\007\]'
@@ -85,11 +118,16 @@ function proml {
     ;;
   esac
 
-PS1="${TITLEBAR}\
-$BLUE[$RED\$(date +%H:%M)$BLUE]\
-$BLUE[$RED\u@\h:\w$GREEN\$(parse_git_branch)$BLUE]\
-$GREEN\$ "
-PS2='> '
-PS4='+ '
+  PS1="
+${TITLEBAR}${rgb_forest}\d \@${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H
+${rgb_firebrick}\w
+${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
+
+# PS1="${TITLEBAR}\
+# $BLUE[$RED\$(date +%H:%M)$BLUE]\
+# $BLUE[$RED\u@\h:\w$GREEN\$(parse_git_branch)$BLUE]\
+# $GREEN\$ "
+  PS2='> '
+  PS4='+ '
 }
 proml
