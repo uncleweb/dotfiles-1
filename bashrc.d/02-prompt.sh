@@ -71,7 +71,21 @@ function parse_git_branch {
         DIRTY="*"
     fi
 
-    echo "${DIRTY}git(${P}) "
+    # STAT=
+    # status=$(git status -s 2> /dev/null)
+    # if [[ $? -eq 0 ]]; then
+    #     STAT="$status"
+    # fi
+
+    echo "${DIRTY}git(${P})"
+}
+
+function show_git_status {
+    #STAT=$(git diff --stat 2> /dev/null) || STAT=""
+    status=$(git status -s 2> /dev/null)
+    if [[ $? -eq 0 ]]; then
+        echo "$status"
+    fi
 }
 
 # function parse_git_branch {
@@ -130,7 +144,8 @@ function proml {
 
   PS1="
 ${TITLEBAR}${rgb_forest}\d \@${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H
-${rgb_firebrick}\w
+${rgb_firebrick}\w${rgb_restore}
+\$(show_git_status)
 ${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
 
 # PS1="${TITLEBAR}\
