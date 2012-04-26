@@ -77,7 +77,7 @@ function parse_git_branch {
     #     STAT="$status"
     # fi
 
-    echo "${DIRTY}git(${P})"
+    echo "${DIRTY}git(${P}) "
 }
 
 function show_git_status {
