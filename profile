@@ -45,24 +45,12 @@ fi
 # To disable a script, simply change its extension
 # to anything other than `.sh`. To reorder a script,
 # change its number prefix.
-if [[ $OSTYPE == "linux-gnu" ]]; then
-    # Operating system is Linux so load Linux-specific scripts.
-    if [ -e $BASHRC_DIR/os/linux ]; then
-        for f in $BASHRC_DIR/os/linux/*.sh
-        do
-            echo "Loading $f"
-            . $f
-        done
-    fi
-elif [[ $OSTYPE == "darwin11" ]]; then
-    # Operating system is Mac OS X so load darwin-specific scripts.
-    if [ -e $BASHRC_DIR/os/darwin ]; then
-        for f in $BASHRC_DIR/os/darwin/*.sh
-        do
-            echo "Loading $f"
-            . $f
-        done
-    fi
+if [ -e $BASHRC_DIR/os/$OSTYPE ]; then
+    for f in $BASHRC_DIR/os/$OSTYPE/*.sh
+    do
+        echo "Loading $f"
+        . $f
+    done
 fi
 
 # Load hostname based overrides
