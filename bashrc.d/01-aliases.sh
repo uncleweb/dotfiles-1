@@ -17,8 +17,12 @@
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
 
-# Aliases
+# LS aliases
+#alias ls='ls -C'
+#alias ll='ls -alF'
+#alias la='ls -A'
+#alias l='ls -CF'
+
+# Other aliases
 alias diffmate='git diff | mate'
-alias ls='ls -C'
-alias l='ls -CF'
 alias emacs='emacs -nw'
