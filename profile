@@ -20,15 +20,16 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+#TOP_DIR=$(dirname "$(readlink -fn -- "$0")")
+#TOP_DIR=$(dirname -- "$0")
+
+TOP_DIR=$HOME/.dotfiles
 HOSTNAME=`hostname`
 WHOAMI=`whoami`
 
-if [ -e $HOME/.bashrc.d ]; then
-    # Check if we have the bashrc.d directory symlinked.
-    BASHRC_DIR=$HOME/.bashrc.d
-elif [ -e $HOME/.dotfiles/bashrc.d ]; then
+if [ -e $TOP_DIR/bashrc.d ]; then
     # Attempt to use the dotfiles bashrc.d directory.
-    BASHRC_DIR=$HOME/.dotfiles/bashrc.d
+    BASHRC_DIR=$TOP_DIR/bashrc.d
 fi
 
 # Load OS-independent extension scripts.
