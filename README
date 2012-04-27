@@ -4,7 +4,7 @@ Clone this repository to ~/.dotfiles::
 
     git clone git://github.com/gorakhargosh/dotfiles.git ~/.dotfiles
 
-Put this into your ~.bashrc or ~.profile
+Put this into your ~/.bashrc or ~/.profile
 
     # Customizations.
     if [ -f ~/.dotfiles/profile ]; then
