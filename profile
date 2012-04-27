@@ -16,17 +16,19 @@
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
-
 # Ensure we have UTF-8 and US English as our defaults.
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+$HOSTNAME=`hostname`
+$WHOAMI=`whoami`
+
 if [ -e $HOME/.bashrc.d ]; then
     # Check if we have the bashrc.d directory symlinked.
     BASHRC_DIR=$HOME/.bashrc.d
-elif [ -e $HOME/dotfiles/bashrc.d ]; then
+elif [ -e $HOME/.dotfiles/bashrc.d ]; then
     # Attempt to use the dotfiles bashrc.d directory.
-    BASHRC_DIR=$HOME/dotfiles/bashrc.d
+    BASHRC_DIR=$HOME/.dotfiles/bashrc.d
 fi
 
 # Load OS-independent extension scripts.
@@ -53,16 +55,22 @@ if [ -e $BASHRC_DIR/os/$OSTYPE ]; then
     done
 fi
 
-# Load hostname based overrides
-if [ -e $BASHRC_DIR/hosts/`hostname`.sh ]; then
-    echo "Loading $BASHRC_DIR/hosts/`hostname`.sh"
-    . $BASHRC_DIR/hosts/`hostname`.sh
+# Load hostname based overrides.
+if [ -e $BASHRC_DIR/hosts/$HOSTNAME ]; then
+    for f in $BASHRC_DIR/hosts/$HOSTNAME/*.sh
+    do
+        echo "Loading $f"
+        . $f
+    done
 fi
 
-# Load username based overrides
-if [ -e $BASHRC_DIR/users/`whoami`.sh ]; then
-    echo "Loading $BASHRC_DIR/users/`whoami`.sh"
-    . $BASHRC_DIR/users/`whoami`.sh
+# Load username based overrides.
+if [ -e $BASHRC_DIR/users/$WHOAMI ]; then
+    for f in $BASHRC_DIR/users/$WHOAMI/*.sh
+    do
+        echo "Loading $f"
+        . $f
+    done
 fi
 
 # Load the path environment.
