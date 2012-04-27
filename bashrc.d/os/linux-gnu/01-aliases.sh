@@ -16,6 +16,9 @@
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
-#    PS1="[\t][\u@\h:\w]\$ "
+# PS1="[\t][\u@\h:\w]\$ "
 alias ls="ls --color"
 export LS_COLORS="ln=1;31;44:"
+
+# Other aliases
+alias o='nautilus'
