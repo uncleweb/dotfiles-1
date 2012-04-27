@@ -142,16 +142,16 @@ function proml {
     ;;
   esac
 
-  PS1="
-${TITLEBAR}${rgb_forest}\d \@${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H
-${rgb_firebrick}\w${rgb_restore}
-${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
-
-#     PS1="
+#   PS1="
 # ${TITLEBAR}${rgb_forest}\d \@${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H
 # ${rgb_firebrick}\w${rgb_restore}
-# \$(show_git_status)
 # ${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
+
+    PS1="
+${TITLEBAR}${rgb_forest}\d \@${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H
+${rgb_firebrick}\w${rgb_restore}
+\$(show_git_status)
+${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
 
 # PS1="${TITLEBAR}\
 # $BLUE[$RED\$(date +%H:%M)$BLUE]\
