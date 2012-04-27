@@ -20,8 +20,8 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-$HOSTNAME=`hostname`
-$WHOAMI=`whoami`
+HOSTNAME=`hostname`
+WHOAMI=`whoami`
 
 if [ -e $HOME/.bashrc.d ]; then
     # Check if we have the bashrc.d directory symlinked.
