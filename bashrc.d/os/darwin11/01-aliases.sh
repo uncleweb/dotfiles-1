@@ -16,10 +16,20 @@
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
-
 #    PS1="[\t][\u@\h:\w]\$ "
 export CLICOLOR=1
 export LSCOLORS exfxcxdxbxegebabagacad
 
+# Shortcuts for ls
+alias ls='ls -C'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# MD5 checksum aliases.
 alias md5='md5 -r'
 alias md5sum='md5 -5'
+
+# Other aliases
+alias diffmate='git diff | mate'
+alias emacs='emacs -nw'
