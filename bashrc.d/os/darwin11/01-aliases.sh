@@ -22,7 +22,7 @@ export LSCOLORS exfxcxdxbxegebabagacad
 
 # Shortcuts for ls
 alias ls='ls -C'
-alias ll='ls -alF'
+alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 
