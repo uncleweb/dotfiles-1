@@ -10,7 +10,7 @@
 
 [alias]
     unstage = reset HEAD
-    s = status
+    s = status -s
     c = commit -s
     co = checkout
     br = branch
