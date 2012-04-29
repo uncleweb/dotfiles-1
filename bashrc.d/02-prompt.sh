@@ -19,6 +19,8 @@
 # Based on:
 # 1. https://github.com/thomasvs/bash-prompt-git/blob/master/git
 # 2. http://jonmaddox.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
+# 3. http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
+
 
 function is_submodule() {
     local git_dir parent_git module_name path strip
