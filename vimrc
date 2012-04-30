@@ -17,9 +17,9 @@
 set encoding=utf8
 set expandtab
 set textwidth=0
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set backspace=indent,eol,start
 set paste
