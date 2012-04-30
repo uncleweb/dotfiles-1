@@ -18,3 +18,8 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     s = status -s
     unstage = reset HEAD
+
+[tig]
+#   show-date = relative
+#   author-width = 8
+   show-rev-graph = yes
