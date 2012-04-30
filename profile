@@ -27,9 +27,12 @@ TOP_DIR=$HOME/.dotfiles
 HOSTNAME=`hostname`
 WHOAMI=`whoami`
 
-if [ -e $TOP_DIR/bashrc.d ]; then
-    # Attempt to use the dotfiles bashrc.d directory.
-    BASHRC_DIR=$TOP_DIR/bashrc.d
+if [ -e $HOME/.bashrc.d ]; then
+  # Attempt to use the ~/.bashrc.d directory.
+  BASHRC_DIR=$HOME/.bashrc.d
+elif [ -e $TOP_DIR/bashrc.d ]; then
+  # Attempt to use the dotfiles bashrc.d directory.
+  BASHRC_DIR=$TOP_DIR/bashrc.d
 fi
 
 # Load OS-independent extension scripts.
@@ -37,11 +40,11 @@ fi
 # to anything other than `.sh`. To reorder a script,
 # change its number prefix.
 if [ -e $BASHRC_DIR ]; then
-    for f in $BASHRC_DIR/*.sh
-    do
-        echo "Loading $f"
-        . $f
-    done
+  for f in $BASHRC_DIR/*.sh
+  do
+    echo "Loading $f"
+    . $f
+  done
 fi
 
 # Load OS-specific scripts.
@@ -49,33 +52,33 @@ fi
 # to anything other than `.sh`. To reorder a script,
 # change its number prefix.
 if [ -e $BASHRC_DIR/os/$OSTYPE ]; then
-    for f in $BASHRC_DIR/os/$OSTYPE/*.sh
-    do
-        echo "Loading $f"
-        . $f
-    done
+  for f in $BASHRC_DIR/os/$OSTYPE/*.sh
+  do
+    echo "Loading $f"
+    . $f
+  done
 fi
 
 # Load hostname based overrides.
 if [ -e $BASHRC_DIR/hosts/$HOSTNAME ]; then
-    for f in $BASHRC_DIR/hosts/$HOSTNAME/*.sh
-    do
-        echo "Loading $f"
-        . $f
-    done
+  for f in $BASHRC_DIR/hosts/$HOSTNAME/*.sh
+  do
+    echo "Loading $f"
+    . $f
+  done
 fi
 
 # Load username based overrides.
 if [ -e $BASHRC_DIR/users/$WHOAMI ]; then
-    for f in $BASHRC_DIR/users/$WHOAMI/*.sh
-    do
-        echo "Loading $f"
-        . $f
-    done
+  for f in $BASHRC_DIR/users/$WHOAMI/*.sh
+  do
+    echo "Loading $f"
+    . $f
+  done
 fi
 
 # Load the path environment.
 if [ -f $HOME/.path_environment ]; then
-    echo "Loading path environment from $HOME/.path_environment"
-    . $HOME/.path_environment
+  echo "Loading path environment from $HOME/.path_environment"
+  . $HOME/.path_environment
 fi
