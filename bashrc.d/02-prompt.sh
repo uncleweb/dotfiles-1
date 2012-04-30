@@ -162,3 +162,5 @@ ${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
   PS4='+ '
 }
 proml
+
+export PS1
