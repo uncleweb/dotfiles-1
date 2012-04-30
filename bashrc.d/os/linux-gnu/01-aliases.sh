@@ -20,5 +20,10 @@
 alias ls="ls --color"
 export LS_COLORS="ln=1;31;44:"
 
+# some more ls aliases
+alias ll='ls -ahlF'
+alias la='ls -A'
+alias l='ls -CF'
+
 # Other aliases
 alias o='nautilus'
