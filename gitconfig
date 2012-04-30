@@ -1,19 +1,20 @@
 [user]
-    name = Yesudeep Mangalapilly
     email = yesudeep@google.com
+    name = Yesudeep Mangalapilly
 
 [color]
-    diff = auto
-    status = auto
     branch = auto
+    diff = auto
+    grep = auto
     interactive = auto
+    status = auto
 
 [alias]
-    unstage = reset HEAD
-    s = status -s
-    c = commit -s
-    co = checkout
-    br = branch
-    changelog = log --pretty='format:* %s'
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     authors = log --all --format='%aN <%aE>'
+    br = branch
+    c = commit -s
+    changelog = log --pretty='format:* %s'
+    co = checkout
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    s = status -s
+    unstage = reset HEAD
