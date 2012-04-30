@@ -23,71 +23,71 @@
 
 
 function is_submodule() {
-    local git_dir parent_git module_name path strip
-    # Find the root of this git repo, then check if its parent dir is also a repo
-    git_dir="$(git rev-parse --show-toplevel)"
-    parent_git="$(cd "$git_dir/.." && git rev-parse --show-toplevel 2> /dev/null)"
+  local git_dir parent_git module_name path strip
+  # Find the root of this git repo, then check if its parent dir is also a repo
+  git_dir="$(git rev-parse --show-toplevel)"
+  parent_git="$(cd "$git_dir/.." && git rev-parse --show-toplevel 2> /dev/null)"
 
-    if [[ -n $parent_git ]]; then
-        strip=$((${#parent_git} + 1))
-        module_name=${git_dir:$strip}
-        # List all the submodule paths for the parent repo
-        while read path
-        do
-            if [[ "$path" != "$module_name" ]]; then continue; fi
-            if [[ -d "$parent_git/$path" ]]; then
-                echo $module_name
-                return 0;
-            fi
-        done < <(cd $parent_git && git submodule --quiet foreach 'echo $path' 2> /dev/null)
-    fi
-    return 1
+  if [[ -n $parent_git ]]; then
+    strip=$((${#parent_git} + 1))
+    module_name=${git_dir:$strip}
+    # List all the submodule paths for the parent repo
+    while read path
+    do
+      if [[ "$path" != "$module_name" ]]; then continue; fi
+      if [[ -d "$parent_git/$path" ]]; then
+        echo $module_name
+        return 0;
+      fi
+    done < <(cd $parent_git && git submodule --quiet foreach 'echo $path' 2> /dev/null)
+  fi
+  return 1
 }
 
 
 function parse_git_branch {
-    git show > /dev/null 2>&1 || return
-    P=
+  git show > /dev/null 2>&1 || return
+  P=
 
-    SM=
-    submodule=$(is_submodule)
-    if [[ $? -eq 0 ]]; then
-        SM="s:$submodule"
-    fi
-    P=$P${SM:+${P:+ }${SM}}
+  SM=
+  submodule=$(is_submodule)
+  if [[ $? -eq 0 ]]; then
+    SM="s:$submodule"
+  fi
+  P=$P${SM:+${P:+ }${SM}}
 
-    BRANCH=
-    ref=$(git symbolic-ref HEAD 2> /dev/null)
-    if [[ $? -eq 0 ]]; then
-      BRANCH="b:${ref#refs/heads/}"
-    fi
-    P=$P${BRANCH:+${P:+ }${BRANCH}}
+  BRANCH=
+  ref=$(git symbolic-ref HEAD 2> /dev/null)
+  if [[ $? -eq 0 ]]; then
+    BRANCH="b:${ref#refs/heads/}"
+  fi
+  P=$P${BRANCH:+${P:+ }${BRANCH}}
 
 
-    DESC="d:"$(git describe 2> /dev/null) || DESC=""
-    P=$P${DESC:+${P:+ }${DESC}}
+  DESC="d:"$(git describe 2> /dev/null) || DESC=""
+  P=$P${DESC:+${P:+ }${DESC}}
 
-    # https://github.com/blog/297-dirty-git-state-in-your-prompt
-    DIRTY=
-    if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]; then
-        DIRTY="*"
-    fi
+  # https://github.com/blog/297-dirty-git-state-in-your-prompt
+  DIRTY=
+  if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]]; then
+    DIRTY="*"
+  fi
 
-    # STAT=
-    # status=$(git status -s 2> /dev/null)
-    # if [[ $? -eq 0 ]]; then
-    #     STAT="$status"
-    # fi
+  # STAT=
+  # status=$(git status -s 2> /dev/null)
+  # if [[ $? -eq 0 ]]; then
+  #     STAT="$status"
+  # fi
 
-    echo "${DIRTY}git(${P}) "
+  echo "${DIRTY}git(${P}) "
 }
 
 function show_git_status {
-    #STAT=$(git diff --stat 2> /dev/null) || STAT=""
-    status=$(git status -s 2> /dev/null)
-    if [[ $? -eq 0 ]]; then
-        echo "$status"
-    fi
+  #STAT=$(git diff --stat 2> /dev/null) || STAT=""
+  status=$(git status -s 2> /dev/null)
+  if [[ $? -eq 0 ]]; then
+    echo "$status"
+  fi
 }
 
 # function parse_git_branch {
@@ -129,19 +129,18 @@ function proml {
 
   if [ `id -u` -eq 0 ]
   then
-      local rgb_usr="${rgb_red}"
+    local rgb_usr="${rgb_red}"
   else
-      local rgb_usr="${rgb_forest}"
+    local rgb_usr="${rgb_forest}"
   fi
-
 
   case $TERM in
     xterm*)
-    TITLEBAR='\[\033]0;\u@\h:\w\007\]'
-    ;;
+      TITLEBAR='\[\033]0;\u@\h:\w\007\]'
+      ;;
     *)
-    TITLEBAR=""
-    ;;
+      TITLEBAR=""
+      ;;
   esac
 
   PS1="
@@ -149,7 +148,7 @@ ${TITLEBAR}${rgb_forest}\d \@ [\t]${rgb_restore} ${rgb_firebrick}\u${rgb_restore
 ${rgb_firebrick}\w${rgb_restore}
 ${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
 
-#     PS1="
+#  PS1="
 # ${TITLEBAR}${rgb_forest}\d \@${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H
 # ${rgb_firebrick}\w${rgb_restore}
 # \$(show_git_status)
