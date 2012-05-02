@@ -77,6 +77,22 @@ if [ -e $BASHRC_DIR/users/$WHOAMI ]; then
   done
 fi
 
+# Google-specific overrides.
+case $HOSTNAME in
+  *"corp.google.com")
+    if [ -e $HOME/.corp.google.com ]; then
+      for f in $HOME/.corp.google.com/*.sh
+      do
+        echo "Loading $f"
+        . $f
+      done
+    else
+      echo "WARNING: You do not have Google-specific shell configuration"
+      echo "installed at $HOME/.corp.google.com."
+    fi;;
+esac
+
+
 # Load the path environment.
 if [ -f $HOME/.path_environment ]; then
   echo "Loading path environment from $HOME/.path_environment"
