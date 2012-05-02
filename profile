@@ -80,8 +80,8 @@ fi
 # Google-specific overrides.
 case $HOSTNAME in
   *"corp.google.com")
-    if [ -e $HOME/.corp.google.com ]; then
-      for f in $HOME/.corp.google.com/*.sh
+    if [ -e $HOME/.corp.google.com/bashrc.d ]; then
+      for f in $HOME/.corp.google.com/bashrc.d/*.sh
       do
         echo "Loading $f"
         . $f
