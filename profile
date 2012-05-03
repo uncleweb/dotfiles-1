@@ -33,26 +33,20 @@ do
 done
 TOP_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
+BASHRC_DIR=$TOP_DIR/bashrc.d
 HOSTNAME=`hostname`
 WHOAMI=`whoami`
 CORP_GOOGLE_DOMAIN="corp.google.com"
-
-if [ -e $TOP_DIR/bashrc.d ]; then
-  # Attempt to use the dotfiles bashrc.d directory.
-  BASHRC_DIR=$TOP_DIR/bashrc.d
-fi
 
 # Load OS-independent extension scripts.
 # To disable a script, simply change its extension
 # to anything other than `.sh`. To reorder a script,
 # change its number prefix.
-if [ -e $BASHRC_DIR ]; then
-  for f in $BASHRC_DIR/*.sh
-  do
-    echo "Loading $f"
-    . $f
-  done
-fi
+for f in $BASHRC_DIR/*.sh
+do
+  echo "Loading $f"
+  . $f
+done
 
 # Load OS-specific scripts.
 # To disable a script, simply change its extension
