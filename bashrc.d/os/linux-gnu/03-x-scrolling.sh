@@ -18,6 +18,8 @@
 
 # Reverses the mouse scrolling on Linux to behave like Mac OS X natural
 # scrolling.
-if [ ! -e $HOME/.natural_scrolling_enabled ]; then
-  xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" && touch $HOME/.natural_scrolling_enabled
-fi
+# if [ ! -e $HOME/.natural_scrolling_enabled ]; then
+#   xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" && touch $HOME/.natural_scrolling_enabled
+# fi
+
+xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" 2>&1 /dev/null
