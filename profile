@@ -22,16 +22,21 @@ export LANG=en_US.UTF-8
 
 #TOP_DIR=$(dirname "$(readlink -fn -- "$0")")
 #TOP_DIR=$(dirname -- "$0")
+#TOP_DIR=$HOME/.dotfiles
 
-TOP_DIR=$HOME/.dotfiles
+# Determine the directory this source file is in.
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ];
+do
+  SOURCE="$(readlink "$SOURCE")";
+done
+TOP_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
 HOSTNAME=`hostname`
 WHOAMI=`whoami`
 CORP_GOOGLE_DOMAIN="corp.google.com"
 
-if [ -e $HOME/.bashrc.d ]; then
-  # Attempt to use the ~/.bashrc.d directory.
-  BASHRC_DIR=$HOME/.bashrc.d
-elif [ -e $TOP_DIR/bashrc.d ]; then
+if [ -e $TOP_DIR/bashrc.d ]; then
   # Attempt to use the dotfiles bashrc.d directory.
   BASHRC_DIR=$TOP_DIR/bashrc.d
 fi
