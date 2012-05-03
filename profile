@@ -26,6 +26,7 @@ export LANG=en_US.UTF-8
 TOP_DIR=$HOME/.dotfiles
 HOSTNAME=`hostname`
 WHOAMI=`whoami`
+CORP_GOOGLE_DOMAIN="corp.google.com"
 
 if [ -e $HOME/.bashrc.d ]; then
   # Attempt to use the ~/.bashrc.d directory.
@@ -79,16 +80,16 @@ fi
 
 # Google-specific overrides.
 case $HOSTNAME in
-  *"corp.google.com")
-    if [ -e $HOME/.corp.google.com/bashrc.d ]; then
-      for f in $HOME/.corp.google.com/bashrc.d/*.sh
+  *$CORP_GOOGLE_DOMAIN)
+    if [ -e $HOME/.$CORP_GOOGLE_DOMAIN/bashrc.d ]; then
+      for f in $HOME/.$CORP_GOOGLE_DOMAIN/bashrc.d/*.sh
       do
         echo "Loading $f"
         . $f
       done
     else
       echo "WARNING: You do not have Google-specific shell configuration"
-      echo "installed at $HOME/.corp.google.com."
+      echo "installed at $HOME/.$CORP_GOOGLE_DOMAIN."
     fi;;
 esac
 
