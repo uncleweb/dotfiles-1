@@ -37,6 +37,7 @@ BASHRC_DIR=$TOP_DIR/bashrc.d
 HOSTNAME=`hostname`
 WHOAMI=`whoami`
 CORP_GOOGLE_DOMAIN="corp.google.com"
+REPORT_BUG_EMAIL="yesudeep@google.com"
 
 # Load OS-independent extension scripts.
 # To disable a script, simply change its extension
@@ -58,6 +59,8 @@ if [ -e $BASHRC_DIR/os/$OSTYPE ]; then
     echo "Loading $f"
     . $f
   done
+else
+  echo "ERROR: Unknown \$OSTYPE: $OSTYPE. Please report this \$OSTYPE to $REPORT_BUG_EMAIL."
 fi
 
 # Load hostname based overrides.
@@ -92,7 +95,6 @@ case $HOSTNAME in
       echo "installed at $HOME/.$CORP_GOOGLE_DOMAIN."
     fi;;
 esac
-
 
 # Load the path environment.
 if [ -f $HOME/.path_environment ]; then
