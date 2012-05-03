@@ -25,6 +25,7 @@ export LANG=en_US.UTF-8
 #TOP_DIR=$HOME/.dotfiles
 
 # Determine the directory this source file is in.
+# From: http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ];
 do
