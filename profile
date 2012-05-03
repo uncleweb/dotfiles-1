@@ -31,7 +31,8 @@ while [ -h "$SOURCE" ];
 do
   SOURCE="$(readlink "$SOURCE")";
 done
-TOP_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+#TOP_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+TOP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 BASHRC_DIR=$TOP_DIR/bashrc.d
 HOSTNAME=`hostname`
