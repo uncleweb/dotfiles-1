@@ -46,7 +46,7 @@ REPORT_BUG_EMAIL="yesudeep@google.com"
 for f in $BASHRC_DIR/*.sh
 do
   echo "Loading $f"
-  . $f
+  source $f
 done
 
 # Load OS-specific scripts.
@@ -57,7 +57,7 @@ if [ -e $BASHRC_DIR/os/$OSTYPE ]; then
   for f in $BASHRC_DIR/os/$OSTYPE/*.sh
   do
     echo "Loading $f"
-    . $f
+    source $f
   done
 else
   echo "ERROR: Unknown \$OSTYPE: $OSTYPE. Please report this \$OSTYPE to $REPORT_BUG_EMAIL."
@@ -68,7 +68,7 @@ if [ -e $BASHRC_DIR/hosts/$HOSTNAME ]; then
   for f in $BASHRC_DIR/hosts/$HOSTNAME/*.sh
   do
     echo "Loading $f"
-    . $f
+    source $f
   done
 fi
 
@@ -77,7 +77,7 @@ if [ -e $BASHRC_DIR/users/$WHOAMI ]; then
   for f in $BASHRC_DIR/users/$WHOAMI/*.sh
   do
     echo "Loading $f"
-    . $f
+    source $f
   done
 fi
 
@@ -88,7 +88,7 @@ case $HOSTNAME in
       for f in $HOME/.$CORP_GOOGLE_DOMAIN/bashrc.d/*.sh
       do
         echo "Loading $f"
-        . $f
+        source $f
       done
     else
       echo "WARNING: You do not have Google-specific shell configuration"
@@ -99,5 +99,5 @@ esac
 # Load the path environment.
 if [ -f $HOME/.path_environment ]; then
   echo "Loading path environment from $HOME/.path_environment"
-  . $HOME/.path_environment
+  source $HOME/.path_environment
 fi
