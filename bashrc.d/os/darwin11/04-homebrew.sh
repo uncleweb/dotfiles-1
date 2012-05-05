@@ -20,6 +20,15 @@
 # Homebrew for Mac OS X.
 if command -v 'brew' &>/dev/null; then
   if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+    source `brew --prefix`/etc/bash_completion
+  else
+    echo "Installing bash-completion"
+    brew install bash-completion
+  fi
+  if [ -f `brew --prefix`/etc/autojump ]; then
+    source `brew --prefix`/etc/autojump
+  else
+    echo "Installing autojump"
+    brew install autojump
   fi
 fi
