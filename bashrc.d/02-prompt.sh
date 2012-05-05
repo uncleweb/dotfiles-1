@@ -95,6 +95,7 @@ function parse_git_branch {
 #   hg_prompt_info
 # }
 
+# http://stevelosh.com/blog/2009/03/mercurial-bash-prompts/
 function hg_dirty() {
     hg status --no-color 2> /dev/null \
     | awk '$1 == "?" { print "?" } $1 != "?" { print "*" }' \
