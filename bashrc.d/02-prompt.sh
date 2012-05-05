@@ -82,6 +82,39 @@ function parse_git_branch {
   echo "${DIRTY}git(${P}) "
 }
 
+# function hg_prompt_info {
+#     hg prompt --angle-brackets "\
+# < on <branch>>\
+# < at <tags|, >>\
+# <status|modified|unknown><update><
+# patches: <patches|join( ? )>>" 2> /dev/null
+# }
+
+# function parse_mercurial_branch {
+#   hg root > /dev/null 2>&1 || return
+#   hg_prompt_info
+# }
+
+function hg_dirty() {
+    hg status --no-color 2> /dev/null \
+    | awk '$1 == "?" { print "?" } $1 != "?" { print "*" }' \
+    | sort | uniq | head -c1
+}
+
+function parse_mercurial_branch {
+  hg root > /dev/null 2>&1 || return
+  BRANCH=
+  ref=$(hg branch 2> /dev/null) #| awk '{print "hg(b:" $1 ")"}'
+  if [[ $? -eq 0 ]]; then
+    BRANCH="b:${ref}"
+  fi
+  P=$P${BRANCH:+${P:+ }${BRANCH}}
+
+  DIRTY=$(hg_dirty)
+
+  echo "${DIRTY}hg(${P})"
+}
+
 function show_git_status {
   #STAT=$(git diff --stat 2> /dev/null) || STAT=""
   status=$(git status -s 2> /dev/null)
@@ -182,7 +215,7 @@ function proml {
   PS1="
 ${TITLEBAR}${color_fg_green}\d \@ [\t]${color_reset} ${color_fg_red}\u${color_reset}@${color_fg_cyan}\H${color_reset}
 ${color_fg_blue}\w${color_reset}
-${color_fg_purple}\$(parse_git_branch)${color_reset}${color_fg_usr}${dollar}${color_reset} "
+${color_fg_purple}\$(parse_git_branch)\$(parse_mercurial_branch)${color_reset}${color_fg_usr}${dollar}${color_reset} "
 
   PS2='> '
   PS4='+ '
