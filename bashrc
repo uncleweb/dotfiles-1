@@ -16,6 +16,8 @@
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
+# Enable this line to switch on logging and debugging.
+#$_DEBUG="true"
 
 # Ensure we have UTF-8 and US English as our defaults.
 export LC_ALL=en_US.UTF-8
@@ -26,6 +28,12 @@ HOSTNAME=`hostname`
 WHOAMI=`whoami`
 CORP_GOOGLE_DOMAIN="corp.google.com"
 REPORT_BUG_EMAIL="yesudeep@google.com"
+
+function _log() {
+  if [ "$_DEBUG" == "true" ]; then
+    echo 1>&2 "$@"
+  fi
+}
 
 #TOP_DIR=$(dirname "$(readlink -fn -- "$0")")
 #TOP_DIR=$(dirname -- "$0")
@@ -50,7 +58,7 @@ SHELLRC_DIR=$TOP_DIR/bashrc.d
 # change its number prefix.
 for f in $SHELLRC_DIR/*.sh
 do
-  echo "Loading $f"
+  _log "Loading $f"
   source $f
 done
 
@@ -61,7 +69,7 @@ done
 if [ -e $SHELLRC_DIR/os/$OSTYPE ]; then
   for f in $SHELLRC_DIR/os/$OSTYPE/*.sh
   do
-    echo "Loading $f"
+    _log "Loading $f"
     source $f
   done
 else
@@ -72,7 +80,7 @@ fi
 if [ -e $SHELLRC_DIR/hosts/$HOSTNAME ]; then
   for f in $SHELLRC_DIR/hosts/$HOSTNAME/*.sh
   do
-    echo "Loading $f"
+    _log "Loading $f"
     source $f
   done
 fi
@@ -81,7 +89,7 @@ fi
 if [ -e $SHELLRC_DIR/users/$WHOAMI ]; then
   for f in $SHELLRC_DIR/users/$WHOAMI/*.sh
   do
-    echo "Loading $f"
+    _log "Loading $f"
     source $f
   done
 fi
@@ -92,7 +100,7 @@ case $HOSTNAME in
     if [ -e $HOME/.$CORP_GOOGLE_DOMAIN/bashrc.d ]; then
       for f in $HOME/.$CORP_GOOGLE_DOMAIN/bashrc.d/*.sh
       do
-        echo "Loading $f"
+        _log "Loading $f"
         source $f
       done
     else
@@ -103,6 +111,6 @@ esac
 
 # Load the path environment.
 if [ -f $HOME/.path_environment ]; then
-  echo "Loading path environment from $HOME/.path_environment"
+  _log "Loading path environment from $HOME/.path_environment"
   source $HOME/.path_environment
 fi
