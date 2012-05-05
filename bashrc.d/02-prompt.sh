@@ -94,6 +94,45 @@ function show_git_status {
 #   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 # }
 
+function escape() {
+  echo "\[\033[$1\]"
+}
+
+# Formatting
+format_bold_on=$(escape 1m)
+format_bold_off=$(escape 22m)
+format_blink_on=$(escape 5m)
+format_blink_off=$(escape 25m)
+format_reverse_on=$(escape 7m)
+format_reverse_off=$(escape 27m)
+
+# Colors
+color_reset=$(escape 0m)
+
+# Foreground colors
+color_fg_default=$(escape 39m)
+color_fg_black=$(escape 30m)
+color_fg_red=$(escape 31m)
+color_fg_green=$(escape 32m)
+color_fg_brown=$(escape 33m)
+color_fg_blue=$(escape 34m)
+color_fg_purple=$(escape "35m")
+color_fg_magenta=$(escape "1;35m")
+color_fg_cyan=$(escape 36m)
+color_fg_white=$(escape 37m)
+
+# Background colors
+color_bg_default=$(escape 49m)
+color_bg_black=$(escape 40m)
+color_bg_red=$(escape 41m)
+color_bg_green=$(escape 42m)
+color_bg_brown=$(escape 43m)
+color_bg_blue=$(escape 44m)
+color_bg_purple=$(escape 45m)
+color_bg_magenta=$(escape "1;45m")
+color_bg_cyan=$(escape 46m)
+color_bg_white=$(escape 47m)
+
 function proml {
   # local        BLUE="\[\033[0;34m\]"
   # local         RED="\[\033[0;31m\]"
@@ -106,32 +145,29 @@ function proml {
   # Color names:
   # base on http://pastie.org/154354
   # color_name='\[\033[ color_code m\]'
-  local rgb_restore='\[\033[00m\]'
-  local rgb_black='\[\033[00;30m\]'
-  local rgb_firebrick='\[\033[00;31m\]'
-  local rgb_red='\[\033[01;31m\]'
-  local rgb_forest='\[\033[00;32m\]'
-  local rgb_green='\[\033[01;32m\]'
-  local rgb_brown='\[\033[00;33m\]'
-  local rgb_yellow='\[\033[01;33m\]'
-  local rgb_navy='\[\033[00;34m\]'
-  local rgb_blue='\[\033[01;34m\]'
-  local rgb_purple='\[\033[00;35m\]'
-  local rgb_magenta='\[\033[01;35m\]'
-  local rgb_cadet='\[\033[00;36m\]'
-  local rgb_cyan='\[\033[01;36m\]'
-  local rgb_gray='\[\033[00;37m\]'
-  local rgb_white='\[\033[01;37m\]'
-
-  local rgb_std="${rgb_white}"
-
-  local format_bold='\[\e[1m\]'
+  #local color_fg_red='\[\033[01;31m\]'
+  #local color_fg_forest='\[\033[00;32m\]'
+  #local color_fg_green='\[\033[01;32m\]'
+  #local color_fg_brown='\[\033[00;33m\]'
+  #local color_fg_yellow='\[\033[01;33m\]'
+  #local color_fg_navy='\[\033[00;34m\]'
+  #local color_fg_blue='\[\033[01;34m\]'
+  #local color_fg_purple='\[\033[00;35m\]'
+  #local color_fg_magenta='\[\033[01;35m\]'
+  #local color_fg_cadet='\[\033[00;36m\]'
+  #local color_fg_cyan='\[\033[01;36m\]'
+  #local color_fg_gray='\[\033[00;37m\]'
+  #local color_fg_white='\[\033[01;37m\]'
 
   if [ `id -u` -eq 0 ]
   then
-    local rgb_usr="${rgb_red}"
+    # Root user.
+    local color_fg_usr="${color_fg_red}"
+    local dollar="\\#"
   else
-    local rgb_usr="${rgb_forest}"
+    # Normal user.
+    local color_fg_usr="${color_fg_green}"
+    local dollar="\\$"
   fi
 
   case $TERM in
@@ -144,23 +180,18 @@ function proml {
   esac
 
   PS1="
-${TITLEBAR}${rgb_forest}\d \@ [\t]${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H${rgb_restore}
-${rgb_firebrick}\w${rgb_restore}
-${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
+${TITLEBAR}${color_fg_green}\d \@ [\t]${color_reset} ${color_fg_red}\u${color_reset}@${color_fg_cyan}\H${color_reset}
+${color_fg_blue}\w${color_reset}
+${color_fg_purple}\$(parse_git_branch)${color_reset}${color_fg_usr}${dollar}${color_reset} "
 
-#  PS1="
-# ${TITLEBAR}${rgb_forest}\d \@${rgb_restore} ${rgb_firebrick}\u${rgb_restore}@${rgb_cadet}\H
-# ${rgb_firebrick}\w${rgb_restore}
-# \$(show_git_status)
-# ${rgb_cadet}\$(parse_git_branch)${rgb_restore}${rgb_usr}\$${rgb_restore} "
-
-# PS1="${TITLEBAR}\
-# $BLUE[$RED\$(date +%H:%M)$BLUE]\
-# $BLUE[$RED\u@\h:\w$GREEN\$(parse_git_branch)$BLUE]\
-# $GREEN\$ "
   PS2='> '
   PS4='+ '
 }
 proml
 
+
 export PS1
+
+#http://superuser.com/questions/204003/make-os-x-terminal-commands-i-type-bold
+#off="\[\033[m\]"
+#trap 'echo -ne "${off}" > $(tty)' DEBUG
