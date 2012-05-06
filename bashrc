@@ -19,16 +19,6 @@
 # Enable this line to switch on logging and debugging.
 #_DEBUG="true"
 
-# Ensure we have UTF-8 and US English as our defaults.
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# Basic configuration.
-HOSTNAME=`hostname`
-WHOAMI=`whoami`
-CORP_GOOGLE_DOMAIN="corp.google.com"
-REPORT_BUG_EMAIL="yesudeep@google.com"
-
 if [[ "$_DEBUG" == "true" ]]; then
   function _log() {
     echo 1>&2 "$@"
@@ -39,6 +29,16 @@ else
     echo -n
   }
 fi
+
+# Ensure we have UTF-8 and US English as our defaults.
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Basic configuration.
+HOSTNAME=`hostname`
+WHOAMI=`whoami`
+CORP_GOOGLE_DOMAIN="corp.google.com"
+REPORT_BUG_EMAIL="yesudeep@google.com"
 
 #TOP_DIR=$(dirname "$(readlink -fn -- "$0")")
 #TOP_DIR=$(dirname -- "$0")
