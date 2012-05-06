@@ -29,11 +29,16 @@ WHOAMI=`whoami`
 CORP_GOOGLE_DOMAIN="corp.google.com"
 REPORT_BUG_EMAIL="yesudeep@google.com"
 
-function _log() {
-  if [ "$_DEBUG" == "true" ]; then
+if [[ "$_DEBUG" == "true" ]]; then
+  function _log() {
     echo 1>&2 "$@"
-  fi
-}
+  }
+else
+  function _log() {
+    # Do nothing.
+    echo -n
+  }
+fi
 
 #TOP_DIR=$(dirname "$(readlink -fn -- "$0")")
 #TOP_DIR=$(dirname -- "$0")
