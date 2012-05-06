@@ -95,13 +95,20 @@ function parse_git_branch {
 #   hg_prompt_info
 # }
 
-# http://stevelosh.com/blog/2009/03/mercurial-bash-prompts/
+# Determines whether the hg clone's working directory is dirty.
+# :see:
+#   http://stevelosh.com/blog/2009/03/mercurial-bash-prompts/
+# :returns:
+#   "*" if dirty.
 function hg_dirty() {
-    hg status --no-color 2> /dev/null \
+  hg status --no-color 2> /dev/null \
     | awk '$1 == "?" { print "?" } $1 != "?" { print "*" }' \
     | sort | uniq | head -c1
 }
 
+# Parses mercurial status and displays it in the prompt.
+# :returns:
+#    Mercurial prompt status.
 function parse_mercurial_branch {
   hg root > /dev/null 2>&1 || return
   BRANCH=
@@ -116,11 +123,15 @@ function parse_mercurial_branch {
   echo "${DIRTY}hg(${P})"
 }
 
+# Displays the git status in the prompt.
+#
+# :returns:
+#    Status string.
 function show_git_status {
   #STAT=$(git diff --stat 2> /dev/null) || STAT=""
-  status=$(git status -s 2> /dev/null)
+  STAT=$(git status -s 2> /dev/null)
   if [[ $? -eq 0 ]]; then
-    echo "$status"
+    echo "$STAT"
   fi
 }
 
@@ -128,80 +139,62 @@ function show_git_status {
 #   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 # }
 
+# Shell-escapes color codes given as arguments.
+#
+# :param 1:
+#    Color code.
+# :returns:
+#    Shell-escaped color code.
 function escape() {
   echo "\[\033[$1\]"
 }
 
 # Formatting
-format_bold_on=$(escape 1m)
-format_bold_off=$(escape 22m)
-format_blink_on=$(escape 5m)
-format_blink_off=$(escape 25m)
-format_reverse_on=$(escape 7m)
-format_reverse_off=$(escape 27m)
+FORMAT_BOLD_ON=$(escape 1m)
+FORMAT_BOLD_OFF=$(escape 22m)
+FORMAT_BLINK_ON=$(escape 5m)
+FORMAT_BLINK_OFF=$(escape 25m)
+FORMAT_REVERSE_ON=$(escape 7m)
+FORMAT_REVERSE_OFF=$(escape 27m)
 
-# Colors
-color_reset=$(escape 0m)
+# Colors based on http://pastie.org/154354
+# COLOR_NAME='\[\033[ color_code m\]'
+COLOR_RESET=$(escape 0m)
 
 # Foreground colors
-color_fg_default=$(escape 39m)
-color_fg_black=$(escape 30m)
-color_fg_red=$(escape 31m)
-color_fg_green=$(escape 32m)
-color_fg_brown=$(escape 33m)
-color_fg_blue=$(escape 34m)
-color_fg_purple=$(escape "35m")
-color_fg_magenta=$(escape "1;35m")
-color_fg_cyan=$(escape 36m)
-color_fg_white=$(escape 37m)
+COLOR_FG_DEFAULT=$(escape 39m)
+COLOR_FG_BLACK=$(escape 30m)
+COLOR_FG_RED=$(escape 31m)
+COLOR_FG_GREEN=$(escape 32m)
+COLOR_FG_BROWN=$(escape 33m)
+COLOR_FG_BLUE=$(escape 34m)
+COLOR_FG_PURPLE=$(escape "35m")
+COLOR_FG_MAGENTA=$(escape "1;35m")
+COLOR_FG_CYAN=$(escape 36m)
+COLOR_FG_WHITE=$(escape 37m)
 
 # Background colors
-color_bg_default=$(escape 49m)
-color_bg_black=$(escape 40m)
-color_bg_red=$(escape 41m)
-color_bg_green=$(escape 42m)
-color_bg_brown=$(escape 43m)
-color_bg_blue=$(escape 44m)
-color_bg_purple=$(escape 45m)
-color_bg_magenta=$(escape "1;45m")
-color_bg_cyan=$(escape 46m)
-color_bg_white=$(escape 47m)
+COLOR_BG_DEFAULT=$(escape 49m)
+COLOR_BG_BLACK=$(escape 40m)
+COLOR_BG_RED=$(escape 41m)
+COLOR_BG_GREEN=$(escape 42m)
+COLOR_BG_BROWN=$(escape 43m)
+COLOR_BG_BLUE=$(escape 44m)
+COLOR_BG_PURPLE=$(escape 45m)
+COLOR_BG_MAGENTA=$(escape "1;45m")
+COLOR_BG_CYAN=$(escape 46m)
+COLOR_BG_WHITE=$(escape 47m)
 
 function proml {
-  # local        BLUE="\[\033[0;34m\]"
-  # local         RED="\[\033[0;31m\]"
-  # local   LIGHT_RED="\[\033[1;31m\]"
-  # local       GREEN="\[\033[0;32m\]"
-  # local LIGHT_GREEN="\[\033[1;32m\]"
-  # local       WHITE="\[\033[1;37m\]"
-  # local  LIGHT_GRAY="\[\033[0;37m\]"
-
-  # Color names:
-  # base on http://pastie.org/154354
-  # color_name='\[\033[ color_code m\]'
-  #local color_fg_red='\[\033[01;31m\]'
-  #local color_fg_forest='\[\033[00;32m\]'
-  #local color_fg_green='\[\033[01;32m\]'
-  #local color_fg_brown='\[\033[00;33m\]'
-  #local color_fg_yellow='\[\033[01;33m\]'
-  #local color_fg_navy='\[\033[00;34m\]'
-  #local color_fg_blue='\[\033[01;34m\]'
-  #local color_fg_purple='\[\033[00;35m\]'
-  #local color_fg_magenta='\[\033[01;35m\]'
-  #local color_fg_cadet='\[\033[00;36m\]'
-  #local color_fg_cyan='\[\033[01;36m\]'
-  #local color_fg_gray='\[\033[00;37m\]'
-  #local color_fg_white='\[\033[01;37m\]'
-
-  if [ `id -u` -eq 0 ]
+  if [ $(id -u) -eq 0 ]
   then
     # Root user.
-    local color_fg_usr="${color_fg_red}"
-    local dollar="\\#"
+    local COLOR_FG_USR="${COLOR_FG_RED}"
+    local DOLLAR="\\#"
   else
     # Normal user.
-    local color_fg_usr="${color_fg_green}"
-    local dollar="\\$"
+    local COLOR_FG_USR="${COLOR_FG_GREEN}"
+    local DOLLAR="\\$"
   fi
 
   case $TERM in
@@ -214,9 +207,9 @@ function proml {
   esac
 
   PS1="
-${TITLEBAR}${color_fg_green}\d \@ [\t]${color_reset} ${color_fg_red}\u${color_reset}@${color_fg_cyan}\H${color_reset}
-${color_fg_blue}\w${color_reset}
-${color_fg_purple}\$(parse_git_branch)\$(parse_mercurial_branch)${color_reset}${color_fg_usr}${dollar}${color_reset} "
+${TITLEBAR}${COLOR_FG_GREEN}\d \@ [\t]${COLOR_RESET} ${COLOR_FG_RED}\u${COLOR_RESET}@${COLOR_FG_CYAN}\H${COLOR_RESET}
+${COLOR_FG_BLUE}\w${COLOR_RESET}
+${COLOR_FG_PURPLE}\$(parse_git_branch)\$(parse_mercurial_branch)${COLOR_RESET}${COLOR_FG_USR}${DOLLAR}${COLOR_RESET} "
 
   PS2='> '
   PS4='+ '
