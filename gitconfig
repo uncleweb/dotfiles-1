@@ -11,7 +11,8 @@
 
 [alias]
     authors = log --all --format='%aN <%aE>'
-    br = branch
+    b = branch
+    ba = branch -a
     c = commit -s
     changelog = log --pretty='format:* %s'
     co = checkout
