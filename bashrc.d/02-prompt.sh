@@ -137,11 +137,23 @@ function show_git_status {
 #   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 # }
 
+# Displays the svn status in the prompt
+#
+# :returns:
+#   Status string.
+function parse_svn_revision {
+	local DIRTY REV=$(svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //')
+	[ "$REV" ] || return
+	[ "$(svn st)" ] && DIRTY='*'
+	echo "${DIRTY}svn(r:${REV})"
+}
+
 # Determines the revision control system in use and displays
 # shell-contextual information based on that.
 function parse_vc_branch {
   git show > /dev/null 2>&1 && parse_git_branch && return
   hg root > /dev/null 2>&1 && parse_mercurial_branch && return
+  svn info > /dev/null 2>&1 && parse_svn_revision && return
 }
 
 # Shell-escapes color codes given as arguments.
