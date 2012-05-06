@@ -142,10 +142,11 @@ function show_git_status {
 # :returns:
 #   Status string.
 function parse_svn_revision {
-	local DIRTY REV=$(svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //')
-	[ "$REV" ] || return
-	[ "$(svn st)" ] && DIRTY='*'
-	echo "${DIRTY}svn(r:${REV})"
+  local DIRTY
+  REV=$(svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //')
+  [ "$REV" ] || return
+  [ "$(svn st)" ] && DIRTY='*'
+  echo "${DIRTY}svn(r:${REV})"
 }
 
 # Determines the revision control system in use and displays
