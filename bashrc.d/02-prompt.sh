@@ -118,7 +118,7 @@ function parse_mercurial_branch {
 
   DIRTY=$(hg_dirty)
 
-  echo "${DIRTY}hg(${P})"
+  echo "${DIRTY}hg(${P}) "
 }
 
 # Displays the git status in the prompt.
@@ -146,7 +146,7 @@ function parse_svn_revision {
   REV=$(svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //')
   [ "$REV" ] || return
   [ "$(svn st)" ] && DIRTY='*'
-  echo "${DIRTY}svn(r:${REV})"
+  echo "${DIRTY}svn(r:${REV}) "
 }
 
 # Determines the revision control system in use and displays
