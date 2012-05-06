@@ -17,7 +17,7 @@
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
 # Enable this line to switch on logging and debugging.
-#$_DEBUG="true"
+#_DEBUG="true"
 
 # Ensure we have UTF-8 and US English as our defaults.
 export LC_ALL=en_US.UTF-8
