@@ -46,7 +46,6 @@ function is_submodule() {
 
 
 function parse_git_branch {
-  git show > /dev/null 2>&1 || return
   P=
 
   SM=
@@ -110,7 +109,6 @@ function hg_dirty() {
 # :returns:
 #    Mercurial prompt status.
 function parse_mercurial_branch {
-  hg root > /dev/null 2>&1 || return
   BRANCH=
   ref=$(hg branch 2> /dev/null) #| awk '{print "hg(b:" $1 ")"}'
   if [[ $? -eq 0 ]]; then
@@ -138,6 +136,13 @@ function show_git_status {
 # function parse_git_branch {
 #   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 # }
+
+# Determines the revision control system in use and displays
+# shell-contextual information based on that.
+function parse_vc_branch {
+  git show > /dev/null 2>&1 && parse_git_branch && return
+  hg root > /dev/null 2>&1 && parse_mercurial_branch && return
+}
 
 # Shell-escapes color codes given as arguments.
 #
@@ -185,7 +190,7 @@ COLOR_BG_MAGENTA=$(escape "1;45m")
 COLOR_BG_CYAN=$(escape 46m)
 COLOR_BG_WHITE=$(escape 47m)
 
-function proml {
+function _proml {
   if [ $(id -u) -eq 0 ]
   then
     # Root user.
@@ -209,12 +214,11 @@ function proml {
   PS1="
 ${TITLEBAR}${COLOR_FG_GREEN}\d \@ [\t]${COLOR_RESET} ${COLOR_FG_RED}\u${COLOR_RESET}@${COLOR_FG_CYAN}\H${COLOR_RESET}
 ${COLOR_FG_BLUE}\w${COLOR_RESET}
-${COLOR_FG_PURPLE}\$(parse_git_branch)\$(parse_mercurial_branch)${COLOR_RESET}${COLOR_FG_USR}${DOLLAR}${COLOR_RESET} "
-
+${COLOR_FG_PURPLE}\$(parse_vc_branch)${COLOR_RESET}${COLOR_FG_USR}${DOLLAR}${COLOR_RESET} "
   PS2='> '
   PS4='+ '
 }
-proml
+_proml
 
 
 export PS1
