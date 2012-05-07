@@ -16,9 +16,22 @@
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    # WARNING: enabling this can cause multi-second delays due to NFS latency
+    #alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 # PS1="[\t][\u@\h:\w]\$ "
 alias ls="ls --color"
-export LS_COLORS="ln=1;31;44:"
+#export LS_COLORS="ln=1;31;44:"
 
 # some more ls aliases
 alias ll='ls -ahlF'
