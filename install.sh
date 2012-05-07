@@ -21,4 +21,4 @@ PWD=`pwd`
 #ln -s ${PWD}/profile ${HOME}/.profile
 ln -s ${PWD}/vimrc ${HOME}/.vimrc
 ln -s ${PWD}/hgrc ${HOME}/.hgrc
-ln -s ${PWD}/.bashrc.d/ ${HOME}/.bashrc.d
+#ln -s ${PWD}/.bashrc.d/ ${HOME}/.bashrc.d
