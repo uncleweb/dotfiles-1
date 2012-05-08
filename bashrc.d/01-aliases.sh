@@ -15,3 +15,7 @@
 # limitations under the License.
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
+
+# Note:
+# Many aliases are portably and functionally equivalently
+# defined in OS-specific shell-scripts.
