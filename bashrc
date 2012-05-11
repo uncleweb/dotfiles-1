@@ -37,7 +37,8 @@ export LANG=en_US.UTF-8
 # Basic configuration.
 HOSTNAME=`hostname`
 WHOAMI=`whoami`
-CORP_GOOGLE_DOMAIN="corp.google.com"
+CORP_GOOGLE_DOMAIN_HOSTNAME="corp.google.com"
+CORP_GOOGLE_LAPPY_HOSTNAME="-glaptop"
 REPORT_BUG_EMAIL="yesudeep@google.com"
 
 #TOP_DIR=$(dirname "$(readlink -fn -- "$0")")
@@ -101,7 +102,7 @@ fi
 
 # Google-specific overrides.
 case $HOSTNAME in
-  *$CORP_GOOGLE_DOMAIN)
+  *$CORP_GOOGLE_DOMAIN_HOSTNAME | *$CORP_GOOGLE_LAPPY_HOSTNAME)
     if [ -e $HOME/.$CORP_GOOGLE_DOMAIN/bashrc.d ]; then
       for f in $HOME/.$CORP_GOOGLE_DOMAIN/bashrc.d/*.sh
       do
