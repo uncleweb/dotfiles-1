@@ -58,6 +58,12 @@ TOP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd -P "$( dirname "$SOURCE"
 # Load the configuration for bash.
 SHELLRC_DIR=$TOP_DIR/bashrc.d
 
+# Load the path environment.
+if [ -f $HOME/.path_environment ]; then
+  _log "Loading path environment from $HOME/.path_environment"
+  source $HOME/.path_environment
+fi
+
 # Load OS-independent extension scripts.
 # To disable a script, simply change its extension
 # to anything other than `.sh`. To reorder a script,
@@ -114,9 +120,3 @@ case $HOSTNAME in
       echo "installed at $HOME/.$CORP_GOOGLE_DOMAIN."
     fi;;
 esac
-
-# Load the path environment.
-if [ -f $HOME/.path_environment ]; then
-  _log "Loading path environment from $HOME/.path_environment"
-  source $HOME/.path_environment
-fi
