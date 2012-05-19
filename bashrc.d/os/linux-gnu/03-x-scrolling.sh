@@ -23,8 +23,8 @@
 # http://cweiske.de/howto/xmodmap/ar01s06.html
 
 
-# Reverses the mouse scrolling on Linux to behave like Mac OS X natural
-# scrolling.
+# Reverses the mouse scrolling on Linux to behave like Mac OS X
+# natural scrolling.
 # xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" 2>&1 /dev/null
 
 MODMAP_CONFIG=$HOME/.Xmodmap
