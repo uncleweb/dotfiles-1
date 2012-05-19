@@ -26,11 +26,14 @@
 # Reverses the mouse scrolling on Linux to behave like Mac OS X natural
 # scrolling.
 # xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" 2>&1 /dev/null
-if [ -e $HOME/.Xmodmap ]; then
-  FOUND_XMODMAP_POINTER=$(grep "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" $HOME/.Xmodmap)
+
+MODMAP_CONFIG=$HOME/.Xmodmap
+
+if [ -e $MODMAP_CONFIG ]; then
+  FOUND_XMODMAP_POINTER=$(grep "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" $MODMAP_CONFIG)
   if [ $? -ne 0 ]; then
-    echo "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" >> $HOME/.Xmodmap && xmodmap $HOME/.Xmodmap
+    echo "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" >> $MODMAP_CONFIG && xmodmap $MODMAP_CONFIG
   fi
 else
-  echo "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" > $HOME/.Xmodmap && xmodmap $HOME/.Xmodmap
+  echo "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" > $MODMAP_CONFIG && xmodmap $MODMAP_CONFIG
 fi
