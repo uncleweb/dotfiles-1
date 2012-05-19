@@ -15,11 +15,22 @@
 # limitations under the License.
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
+#
+# Note:
+# If your distribution of Linux does not load ~/.Xmodmap
+# automatically, you may need to manually load that file in your
+# GNOME/KDE session. Here's how to do it:
+# http://cweiske.de/howto/xmodmap/ar01s06.html
+
 
 # Reverses the mouse scrolling on Linux to behave like Mac OS X natural
 # scrolling.
-# if [ ! -e $HOME/.natural_scrolling_enabled ]; then
-#   xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" && touch $HOME/.natural_scrolling_enabled
-# fi
-
-xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" 2>&1 /dev/null
+# xmodmap -e "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" 2>&1 /dev/null
+if [ -e $HOME/.Xmodmap ]; then
+  FOUND_XMODMAP_POINTER=$(grep "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" $HOME/.Xmodmap)
+  if [ $? -ne 0 ]; then
+    echo "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" >> $HOME/.Xmodmap && xmodmap $HOME/.Xmodmap
+  fi
+else
+  echo "pointer = 1 2 3 5 4 6 7 8 9 10 11 12" > $HOME/.Xmodmap && xmodmap $HOME/.Xmodmap
+fi
