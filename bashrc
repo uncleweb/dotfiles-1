@@ -131,6 +131,11 @@ fi
 # Google-specific overrides.
 case $HOSTNAME in
   *$CORP_GOOGLE_DOMAIN_HOSTNAME | *$CORP_GOOGLE_LAPPY_HOSTNAME)
+    if [ -e $HOME/.$CORP_GOOGLE_DOMAIN_HOSTNAME/path_environment ]; then
+      _log "Loading $HOME/.$CORP_GOOGLE_DOMAIN_HOSTNAME/path_environment"
+      source $HOME/.$CORP_GOOGLE_DOMAIN_HOSTNAME/path_environment
+    fi
+
     if [ -e $HOME/.$CORP_GOOGLE_DOMAIN_HOSTNAME/bashrc.d ]; then
       for f in $HOME/.$CORP_GOOGLE_DOMAIN_HOSTNAME/bashrc.d/*.sh
       do
