@@ -34,9 +34,12 @@ alias ls="ls --color"
 #export LS_COLORS="ln=1;31;44:"
 
 # some more ls aliases
-alias ll='ls -ahlF'
-alias la='ls -A'
+alias dir='ls -ahlF'
 alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -ahlF'
 
 # Other aliases
+alias grep='grep -I --color -n'
 alias o='nautilus'
+alias rgrep='rgrep -I --color -n'

@@ -21,15 +21,21 @@ export CLICOLOR=1
 export LSCOLORS exfxcxdxbxegebabagacad
 
 # Shortcuts for ls
-alias ls='ls -C'
-alias ll='ls -alhF'
-alias la='ls -A'
+alias dir='ls -ahlF'
 alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alhF'
+alias ls='ls -C'
 
 # MD5 checksum aliases.
 alias md5='md5 -r'
 alias md5sum='md5 -5'
 
 # Other aliases
+alias grep='grep -I --color -n'
+alias o='open'
+alias rgrep='rgrep -I --color -n'
+
+# Applications
 alias diffmate='git diff | mate'
 alias emacs='emacs -nw'
