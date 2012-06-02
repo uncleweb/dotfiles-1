@@ -63,7 +63,7 @@ function parse_git_branch {
   P=$P${BRANCH:+${P:+ }${BRANCH}}
 
 
-  DESC="d:"$(git describe 2> /dev/null) || DESC=""
+  DESC="t:"$(git describe 2> /dev/null) || DESC=""
   P=$P${DESC:+${P:+ }${DESC}}
 
   # https://github.com/blog/297-dirty-git-state-in-your-prompt
