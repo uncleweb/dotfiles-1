@@ -20,6 +20,7 @@
 # Packages:
 # 1. ssh-copy-id
 # 2. ack
+# 3. sshfs
 
 # Homebrew for Mac OS X.
 if command -v 'brew' &>/dev/null; then

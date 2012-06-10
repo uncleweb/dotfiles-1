@@ -17,7 +17,7 @@
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
 # Packages pending:
-# keychain tree tig aptitude emacs node autojump bash-completion ack-grep
+# keychain tree tig aptitude emacs node autojump bash-completion ack-grep sshfs
 
 # if command -v 'apt-get' &>/dev/null; then
 #   APT_PACKAGES=""
