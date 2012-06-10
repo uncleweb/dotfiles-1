@@ -78,3 +78,9 @@
 #   fi
 
 # fi
+
+
+# autojump
+#
+# Please add the line to ~/.bashrc :
+# [[ -s ~/.autojump/etc/profile.d/autojump.bash ]] && source ~/.autojump/etc/profile.d/autojump.bash
