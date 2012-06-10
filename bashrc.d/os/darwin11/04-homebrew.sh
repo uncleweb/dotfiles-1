@@ -17,6 +17,10 @@
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
 
+# Packages:
+# 1. ssh-copy-id
+#
+
 # Homebrew for Mac OS X.
 if command -v 'brew' &>/dev/null; then
   BREWED_PACKAGES=""

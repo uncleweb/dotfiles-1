@@ -16,6 +16,8 @@
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
+# Packages pending:
+# keychain tree tig aptitude emacs node autojump bash-completion
 
 # if command -v 'apt-get' &>/dev/null; then
 #   APT_PACKAGES=""
@@ -69,7 +71,10 @@
 #   # Specific packages
 #   EMACS_VERSION=$(emacs --version | grep '^GNU Emacs 24\..*')
 #   if [[ $? -ne 0 ]]; then
-#     git clone
+#     sudo apt-get build-dep emacs-snapshot
+#     git clone git://savannah url
+#     cd emacs
+#     ./configure && make && sudo make install
 #   fi
 
 # fi
