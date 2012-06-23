@@ -147,3 +147,15 @@ case $HOSTNAME in
       echo "installed at $HOME/.$CORP_GOOGLE_DOMAIN."
     fi;;
 esac
+
+
+# Third-party
+BASH_IDO=$DOTFILES_DIR/bashrc.d/third_party/bash-ido/bash-ido
+
+if [ ! -f $BASH_IDO ]; then
+  pushd $DOTFILES_DIR
+  git submodule update --init --recursive
+  popd
+fi
+
+source $BASH_IDO && echo "Loading $BASH_IDO"
