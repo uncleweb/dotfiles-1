@@ -150,12 +150,13 @@ esac
 
 
 # Third-party
-BASH_IDO=$DOTFILES_DIR/bashrc.d/third_party/bash-ido/bash-ido
 
+# A little bit of Emacs awesomeness for the terminal. I don't know
+# how you live without this.
+BASH_IDO=$DOTFILES_DIR/bashrc.d/third_party/bash-ido/bash-ido
 if [ ! -f $BASH_IDO ]; then
   pushd $DOTFILES_DIR
   git submodule update --init --recursive
   popd
 fi
-
-source $BASH_IDO && echo "Loading $BASH_IDO"
+source $BASH_IDO && _log "Loading $BASH_IDO"
