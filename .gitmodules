@@ -1,0 +1,3 @@
+[submodule "bashrc.d/third_party/bash-ido"]
+	path = bashrc.d/third_party/bash-ido
+	url = git://gitorious.org/bash-ido/bash-ido.git
