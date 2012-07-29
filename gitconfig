@@ -19,6 +19,7 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     s = status -s
     unstage = reset HEAD
+    conflicts = !git ls-files -u | cut -f 2 | sort -u
 
 [tig]
 #   show-date = relative
