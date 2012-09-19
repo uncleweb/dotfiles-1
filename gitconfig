@@ -21,6 +21,9 @@
     unstage = reset HEAD
     conflicts = !git ls-files -u | cut -f 2 | sort -u
 
+[diff]
+    guitool = meld
+
 [tig]
 #   show-date = relative
 #   author-width = 8
