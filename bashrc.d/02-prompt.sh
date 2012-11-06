@@ -31,15 +31,19 @@ function is_submodule() {
   if [[ -n $parent_git ]]; then
     strip=$((${#parent_git} + 1))
     module_name=${git_dir:$strip}
-    # List all the submodule paths for the parent repo
-    while read path
-    do
-      if [[ "$path" != "$module_name" ]]; then continue; fi
-      if [[ -d "$parent_git/$path" ]]; then
-        echo $module_name
-        return 0;
-      fi
-    done < <(cd $parent_git && git submodule --quiet foreach 'echo $path' 2> /dev/null)
+
+    # TODO(yesudeep): This bit is causing GDM on Ubuntu 12.04 to not login.
+    # Disabled temporarily.
+
+    # # List all the submodule paths for the parent repo
+    # while read path
+    # do
+    #   if [[ "$path" != "$module_name" ]]; then continue; fi
+    #   if [[ -d "$parent_git/$path" ]]; then
+    #     echo $module_name
+    #     return 0;
+    #   fi
+    # done < <(cd $parent_git && git submodule --quiet foreach 'echo $path' 2> /dev/null)
   fi
   return 1
 }
@@ -48,12 +52,14 @@ function is_submodule() {
 function parse_git_branch {
   P=
 
-  SM=
-  submodule=$(is_submodule)
-  if [[ $? -eq 0 ]]; then
-    SM="s:$submodule"
-  fi
-  P=$P${SM:+${P:+ }${SM}}
+  # TODO(yesudeep): This bit is causing GDM on Ubuntu 12.04 to not login.
+  # Disabled temporarily.
+  # SM=
+  # submodule=$(is_submodule)
+  # if [[ $? -eq 0 ]]; then
+  #   SM="s:$submodule"
+  # fi
+  # P=$P${SM:+${P:+ }${SM}}
 
   BRANCH=
   ref=$(git symbolic-ref HEAD 2> /dev/null)
@@ -72,27 +78,8 @@ function parse_git_branch {
     DIRTY="*"
   fi
 
-  # STAT=
-  # status=$(git status -s 2> /dev/null)
-  # if [[ $? -eq 0 ]]; then
-  #     STAT="$status"
-  # fi
-
   echo "${DIRTY}git(${P}) "
 }
-
-# function hg_prompt_info {
-#     hg prompt --angle-brackets "\
-# < on <branch>>\
-# < at <tags|, >>\
-# <status|modified|unknown><update><
-# patches: <patches|join( ? )>>" 2> /dev/null
-# }
-
-# function parse_mercurial_branch {
-#   hg root > /dev/null 2>&1 || return
-#   hg_prompt_info
-# }
 
 # Determines whether the hg clone's working directory is dirty.
 # :see:
