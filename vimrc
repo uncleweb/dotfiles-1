@@ -43,6 +43,9 @@ Bundle 'wincent/Command-T'
 " Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
 
+Bundle 'scrooloose/nerdtree'
+" Bundle 'andrep/vimacs'
+
 " Programming languages.
 Bundle "pangloss/vim-javascript"
 
@@ -85,6 +88,10 @@ nnoremap ; :
 
 " Forgot to use sudo to edit a file? Just use this.
 cmap w!! w !sudo tee % >/dev/null
+
+" Directory navigation.
+nmap <leader>n :NERDTree<CR>
+autocmd vimenter * NERDTree
 
 
 " ----------------------------------------------------------------------
@@ -210,7 +217,6 @@ set ruler             " Always show current position.
 set number            " Always show line numbers.
 set cursorline        " Indicate the current line.
 
-
 " ----------------------------------------------------------------------
 " No annoying sound on errors
 " ----------------------------------------------------------------------
@@ -255,6 +261,7 @@ if has("gui_running")
   set guioptions+=a            " Interact with the system clipboard.
   if has("gui_macvim")
     set guifont=Monaco:h13
+    set lines=50 columns=120
   endif
 else
   " colorscheme desert
