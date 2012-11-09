@@ -46,7 +46,7 @@ Bundle 'Shougo/neocomplcache'
 " Programming languages.
 Bundle "pangloss/vim-javascript"
 
-
+set rtp+=$GOROOT/misc/vim
 
 " Required by Vundle.
 filetype plugin indent on
@@ -277,7 +277,7 @@ set colorcolumn=80              " Show a right margin.
 
 set autoindent                  " Automatically indent.
 set smartindent                 " Smart indent.
-set wrap                        " Wrap lines.
+set nowrap                      " Don't wrap lines.
 
 set backspace=eol,start,indent  " Tell backspace to behave.
 set whichwrap+=<,>,h,l
