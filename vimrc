@@ -42,6 +42,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
 
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'wincent/Command-T'
 
 " Required by Vundle.
 filetype plugin indent on
