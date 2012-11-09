@@ -65,6 +65,7 @@ nmap <leader>w :w!<CR>
 
 " Quit window.
 nmap <leader>q :q<CR>
+
 " Paste from clipboard.
 nmap <leader>p "+p
 
