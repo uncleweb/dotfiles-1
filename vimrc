@@ -330,6 +330,11 @@ if has("autocmd")
 endif
 
 
+" -------------------------------------------------------------------
+" Programming language specific.
+" -------------------------------------------------------------------
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
 " Automatically reload vimrc.
 " Source the vimrc file after saving it
 "if has("autocmd")
