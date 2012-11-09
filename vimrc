@@ -23,11 +23,6 @@
 " 3. http://smalltalk.gnu.org/blog/bonzinip/emacs-ifying-vims-autoindent
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Packages:
-" gitv - Git version control system integration.
-" vundle - package management.
-"
-
 set nocompatible         " Don't be compatible with vi.
 filetype off             " Required by Vundle.
 
@@ -44,7 +39,8 @@ Bundle 'gregsexton/gitv'
 Bundle 'Lokaltog/vim-powerline'
 " Bundle 'Lokaltog/vim-easymotion'
 Bundle 'wincent/Command-T'
-
+Bundle 'vim-scripts/AutoComplPop'
+Bundle 'ervandew/supertab'
 
 " Programming languages.
 Bundle "pangloss/vim-javascript"
@@ -114,6 +110,12 @@ set wildignore+=*.o,*~,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
+set ofu=syntaxcomplete#Complete
+let g:acp_completeoptPreview=1
+" don't select first item, follow typing in autocomplete
+set completeopt=menuone,longest,preview
+set pumheight=6             " Keep a small completion window
+
 " ----------------------------------------------------------------------
 " Searching, matching, and navigation.
 " ----------------------------------------------------------------------
@@ -153,12 +155,16 @@ set autoread                 " Automatically reload files that change on disk.
 set nobackup                 " Do not create backup files.
 set nowb                     " No writeback.
 set noswapfile               " No swapfiles.
+set modeline                 " Allow vim modelines in files.
+set modelines=5              " Lines within which modelines can be found.
 
 " ----------------------------------------------------------------------
 " Appearance.
 " ----------------------------------------------------------------------
 syntax enable
 
+set confirm                  " Y-N-C prompt if closing with unsaved changes.
+set showcmd                  " Show incomplete normal mode commands as I type.
 set laststatus=2             " Always show the status line.
 set cmdheight=2              " Height of the command bar.
 set title
