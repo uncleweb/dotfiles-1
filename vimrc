@@ -31,7 +31,7 @@
 set nocompatible         " Don't be compatible with vi.
 filetype off             " Required by Vundle.
 
-set rtp+=~/.dotfiles/vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Let Vundle manage Vundle.
@@ -41,6 +41,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
 
+Bundle 'Lokaltog/vim-powerline'
 
 " Required by Vundle.
 filetype plugin indent on
