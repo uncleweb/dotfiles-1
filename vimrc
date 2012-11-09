@@ -42,6 +42,7 @@ Bundle 'wincent/Command-T'
 " Bundle 'vim-scripts/AutoComplPop'
 " Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
+Bundle 'vim-scripts/Auto-Pairs'
 
 Bundle 'scrooloose/nerdtree'
 " Bundle 'andrep/vimacs'
@@ -91,7 +92,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Directory navigation.
 nmap <leader>n :NERDTree<CR>
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 
 " ----------------------------------------------------------------------
