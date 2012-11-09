@@ -18,10 +18,12 @@
 
 PWD=`pwd`
 
+git submodule update --init --recursive
 #ln -s ${PWD}/profile ${HOME}/.profile
 ln -s ${PWD}/vimrc ${HOME}/.vimrc
 ln -s ${PWD}/vim ${HOME}/.vim
 ln -s ${PWD}/hgrc ${HOME}/.hgrc
+vim +BundleInstall +qall
 cd ~/.vim/bundle/Command-T/ruby/command-t && ruby extconf.rb && make && cd
 
 #ln -s ${PWD}/.bashrc.d/ ${HOME}/.bashrc.d
