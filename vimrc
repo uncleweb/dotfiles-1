@@ -42,7 +42,14 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
 
 Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-easymotion'
 Bundle 'wincent/Command-T'
+
+
+" Programming languages.
+Bundle "pangloss/vim-javascript"
+
+
 
 " Required by Vundle.
 filetype plugin indent on
@@ -156,11 +163,15 @@ set laststatus=2             " Always show the status line.
 set cmdheight=2              " Height of the command bar.
 set title
 
+
 if has("gui_running")
   colorscheme desert
   " set guioptions-=m          " Remove the menu bar.
   " set guioptions-=T          " Remove the toolbar.
   set guioptions+=a            " Interact with the system clipboard.
+  if has("gui_macvim")
+    set guifont=Monaco:h13
+  endif
 else
   " colorscheme desert
   colorscheme torte
