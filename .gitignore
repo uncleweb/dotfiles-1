@@ -1,3 +1,10 @@
+*~
+.DS_Store
+Thumbs.db
+*.o
+*.py[co]
+
+
 /vim/bundle/gitv/
 /vim/bundle/vim-fugitive/
 /vim/bundle/vim-powerline/
