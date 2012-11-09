@@ -85,7 +85,7 @@ cmap w!! w !sudo tee % >/dev/null
 " ----------------------------------------------------------------------
 set paste                       " Don't automatically indent pastes.
 set pastetoggle=<F2>            " Allow toggling paste.
-set clipboard=unnamed+
+set clipboard+=unnamedplus
 
 " ----------------------------------------------------------------------
 " Buffers
