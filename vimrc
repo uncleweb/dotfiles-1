@@ -32,20 +32,19 @@ call vundle#rc()
 " Let Vundle manage Vundle.
 Bundle 'gmarik/vundle'
 
-" Git integration.
+" Version control integration.
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
 
+" Appearance, status, and navigation.
 Bundle 'Lokaltog/vim-powerline'
-" Bundle 'Lokaltog/vim-easymotion'
 Bundle 'wincent/Command-T'
-" Bundle 'vim-scripts/AutoComplPop'
-" Bundle 'ervandew/supertab'
-Bundle 'Shougo/neocomplcache'
-" Bundle 'vim-scripts/Auto-Pairs'    " Breaks completion by mapping <CR>.
-Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'andrep/vimacs'
+
+" Power editing.
+Bundle 'Shougo/neocomplcache'
+Bundle 'sjl/gundo.vim'
+Bundle 'Raimondi/delimitMate'
 
 " Programming languages.
 Bundle "pangloss/vim-javascript"
@@ -87,10 +86,12 @@ nmap <leader>u :GundoToggle<CR>
 " Edit and reload vim configuration.
 nmap <leader>ve :tabedit $MYVIMRC<CR>
 nmap <leader>vr :source $MYVIMRC<CR>
+
+" Package management.
 nmap <leader>vi :BundleInstall<CR>
 nmap <leader>vc :BundleClean<CR>
 
-" Strip off two keystrokes from almost every Vim command by aliasing this.
+" Strip off 2 keystrokes from almost every Vim command by aliasing this.
 nnoremap ; :
 
 " Forgot to use sudo to edit a file? Just use this.
@@ -126,6 +127,7 @@ set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
 set ofu=syntaxcomplete#Complete
+
 " let g:acp_completeoptPreview=1
 " don't select first item, follow typing in autocomplete
 set completeopt=menuone,longest,preview
@@ -154,6 +156,15 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
     \ }
+
+" Language specific patterns.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+
+" Go lang completion. https://github.com/Shougo/neocomplcache/issues/134
+autocmd FileType go setlocal omnifunc=gocomplete#Complete
+let g:neocomplcache_omni_patterns['go'] = '\%(\.\|->\)\h\w*'
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
