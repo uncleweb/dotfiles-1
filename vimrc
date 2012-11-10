@@ -42,8 +42,8 @@ Bundle 'wincent/Command-T'
 " Bundle 'vim-scripts/AutoComplPop'
 " Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
-Bundle 'vim-scripts/Auto-Pairs'
-
+" Bundle 'vim-scripts/Auto-Pairs'    " Breaks completion by mapping <CR>.
+Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/nerdtree'
 " Bundle 'andrep/vimacs'
 
@@ -81,8 +81,14 @@ nmap <leader>p "+p
 " Show the gitv log.
 nmap <leader>g :Gitv<CR>
 
-" Edit vimrc.
-nmap <leader>v :tabedit $MYVIMRC<CR>
+" Undo tree toggle.
+nmap <leader>u :GundoToggle<CR>
+
+" Edit and reload vim configuration.
+nmap <leader>ve :tabedit $MYVIMRC<CR>
+nmap <leader>vr :source $MYVIMRC<CR>
+nmap <leader>vi :BundleInstall<CR>
+nmap <leader>vc :BundleClean<CR>
 
 " Strip off two keystrokes from almost every Vim command by aliasing this.
 nnoremap ; :
@@ -91,7 +97,7 @@ nnoremap ; :
 cmap w!! w !sudo tee % >/dev/null
 
 " Directory navigation.
-nmap <leader>n :NERDTree<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree
 
 
@@ -126,7 +132,7 @@ set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
 
 " ----------------------------------------------------------------------
-" neocomplcache
+" Autocompletion popup for text.
 " ----------------------------------------------------------------------
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -201,6 +207,7 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
 
 " ----------------------------------------------------------------------
 " Searching, matching, and navigation.
