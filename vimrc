@@ -45,6 +45,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Shougo/neocomplcache'
 Bundle 'sjl/gundo.vim'
 Bundle 'Raimondi/delimitMate'
+" Bundle 'vim-scripts/paredit.vim'
 
 " Programming languages.
 Bundle "pangloss/vim-javascript"
@@ -59,6 +60,12 @@ filetype plugin indent on
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
+
+" ----------------------------------------------------------------------
+" Paredit mode.
+" ----------------------------------------------------------------------
+" au BufNewFile,BufRead *.go call PareditInitBuffer()
+" let delimitMate_autoclose = 0       " Disables delimMate.
 
 " ----------------------------------------------------------------------
 " Editing.
