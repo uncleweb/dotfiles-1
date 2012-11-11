@@ -47,6 +47,16 @@ Bundle 'sjl/gundo.vim'
 Bundle 'Raimondi/delimitMate'
 " Bundle 'vim-scripts/paredit.vim'
 
+" The main msanders snipmate repository has been abandoned. garbas is now
+" maintaining the snipmate plugin. The following are the extensions required
+" for snipmate to work.
+" Bundle 'garbas/vim-snipmate'
+" Bundle 'MarcWeber/vim-addon-mw-utils'
+" Bundle 'tomtom/tlib_vim'
+
+" This snippet expansion extension is better.
+Bundle 'SirVer/ultisnips'
+
 " Programming languages.
 Bundle "pangloss/vim-javascript"
 

@@ -4,7 +4,7 @@ Thumbs.db
 *.o
 *.py[co]
 
-
+/vim/vim
 /vim/bundle/gitv/
 /vim/bundle/vim-fugitive/
 /vim/bundle/vim-powerline/
@@ -17,4 +17,4 @@ Thumbs.db
 /vim/bundle/Auto-Pairs/
 /vim/bundle/gundo.vim/
 /vim/bundle/delimitMate/
-
+/vim/bundle/ultisnips/
