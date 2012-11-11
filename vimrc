@@ -106,7 +106,8 @@ nmap <leader>vr :source $MYVIMRC<CR>
 
 " Package management.
 nmap <leader>vi :BundleInstall<CR>
-nmap <leader>vc :BundleClean<CR>
+nmap <leader>vc :BundleClean!<CR>
+nmap <leader>vv :BundleClean!<CR>q:BundleInstall<CR>q
 
 " Strip off 2 keystrokes from almost every Vim command by aliasing this.
 nnoremap ; :
