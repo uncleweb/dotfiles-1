@@ -32,5 +32,8 @@ unified = 8
 intree = true
 
 [web]
-cacerts = /etc/hg-dummy-cert.pem
+# Linux.
+cacerts = /etc/ssl/certs/ca-certificates.crt
+# Mac OS X.
+#cacerts = /etc/hg-dummy-cert.pem
 
