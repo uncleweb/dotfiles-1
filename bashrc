@@ -102,6 +102,7 @@ if [ -e $SHELLRC_DIR/os/$OSTYPE ]; then
     _log "Loading $f"
     source $f
   done
+  unset f
 else
   echo "ERROR: Unknown \$OSTYPE: $OSTYPE."
   echo "Please report this \$OSTYPE to $REPORT_BUG_EMAIL."
@@ -115,6 +116,7 @@ if [ -e $SHELLRC_DIR/hosts/$HOSTNAME ]; then
     _log "Loading $f"
     source $f
   done
+  unset f
 fi
 
 
@@ -125,6 +127,7 @@ if [ -e $SHELLRC_DIR/users/$WHOAMI ]; then
     _log "Loading $f"
     source $f
   done
+  unset f
 fi
 
 
@@ -142,6 +145,7 @@ case $HOSTNAME in
         _log "Loading $f"
         source $f
       done
+      unset f
     else
       echo "WARNING: You do not have Google-specific shell configuration"
       echo "installed at $HOME/.$CORP_GOOGLE_DOMAIN."
