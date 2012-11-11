@@ -46,6 +46,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'sjl/gundo.vim'
 Bundle 'Raimondi/delimitMate'
 " Bundle 'vim-scripts/paredit.vim'
+Bundle "kana/vim-arpeggio"
 
 " The main msanders snipmate repository has been abandoned. garbas is now
 " maintaining the snipmate plugin. The following are the extensions required
@@ -84,6 +85,14 @@ set history=1000          " Remember these many lines.
 set undolevels=1000       " Allow more undo levels.
 set encoding=utf8        " UTF-8 as standard encoding.
 set ffs=unix,dos,mac     " Use UNIX as standard file type.
+
+" ----------------------------------------------------------------------
+" Keyboard bindings and arpeggios (keychords).
+" ----------------------------------------------------------------------
+
+"Arpeggio inoremap ;'  :CommandT
+"call arpeggio#map('i', '', 0, ';\'', '<Esc>')
+
 
 " Fast save.
 nmap <leader>w :w!<CR>
