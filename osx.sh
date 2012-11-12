@@ -330,6 +330,11 @@ defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Fi
 # defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 
 ###############################################################################
+# App Store                                                                   #
+###############################################################################
+defaults write com.apple.appstore ShowDebugMenu -bool true
+
+###############################################################################
 # Terminal                                                                    #
 ###############################################################################
 
