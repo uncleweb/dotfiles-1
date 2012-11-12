@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim configuration.
 "
 " Copyright (C) 2012 Google Inc.
@@ -21,7 +21,7 @@
 " 1. http://nvie.com/posts/how-i-boosted-my-vim/
 " 2. http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
 " 3. http://smalltalk.gnu.org/blog/bonzinip/emacs-ifying-vims-autoindent
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible         " Don't be compatible with vi.
 filetype off             " Required by Vundle.
@@ -141,6 +141,10 @@ map <leader>l <c-w>l
 
 " Sort lines.
 vnoremap <leader>s :sort<CR>
+
+" Indentation.
+vnoremap < <gv  " Better outdent.
+vnoremap > >gv  " Better indent.
 
 
 " ----------------------------------------------------------------------
@@ -371,6 +375,24 @@ set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s
 if has("autocmd")
   autocmd FileType * setlocal indentkeys+=!<Tab>
 endif
+
+" Show trailing whitespace.
+if has("autocmd")
+  autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+  au InsertLeave * match ExtraWhitespace /\s\+$/
+endif
+
+" Highlight lines that are longer than the right margin.
+function! HighlightTooLongLines()
+  highlight def link RightMargin Error
+  if &textwidth != 0
+    exec ('match RightMargin /\%>' . &textwidth . 'v.\+/')
+  endif
+endfunction
+
+augroup filetypedetect
+  au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
+augroup END
 
 " Highlight whitespace.
 " set list
