@@ -439,9 +439,9 @@ if has("gui_running")
   " set guioptions-=m          " Remove the menu bar.
   " set guioptions-=T          " Remove the toolbar.
   set guioptions+=a            " Interact with the system clipboard.
+  set lines=50 columns=120
   if has("gui_macvim")
     set guifont=Monaco:h13
-    set lines=50 columns=120
   endif
 else
   " colorscheme desert
