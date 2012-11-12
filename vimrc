@@ -61,6 +61,9 @@ Bundle "kana/vim-arpeggio"
 
 " Programming languages.
 Bundle "pangloss/vim-javascript"
+" requires `sudo pip install jedi`.
+" breaks autocompletion and completes without me pressing tab.
+" Bundle "davidhalter/jedi-vim"
 
 set rtp+=$GOROOT/misc/vim
 
