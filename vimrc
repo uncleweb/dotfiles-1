@@ -56,7 +56,7 @@ Bundle "kana/vim-arpeggio"
 " Bundle 'tomtom/tlib_vim'
 
 " This snippet expansion extension is better.
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 
 " Programming languages.
 Bundle "pangloss/vim-javascript"
@@ -159,6 +159,13 @@ set ofu=syntaxcomplete#Complete
 " don't select first item, follow typing in autocomplete
 set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
+
+" Programming language specific autocompletion.
+if has('autocmd')
+  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python set omnifunc=pythoncomplete#Complete
+  autocmd FileType python setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+endif
 
 " ----------------------------------------------------------------------
 " Autocompletion popup for text.
