@@ -61,6 +61,8 @@ Bundle "kana/vim-arpeggio"
 
 " Programming languages.
 Bundle "pangloss/vim-javascript"
+" Requires nodejs.
+Bundle 'maksimr/vim-jsbeautify'
 " requires `sudo pip install jedi`.
 " breaks autocompletion and completes without me pressing tab.
 " Bundle "davidhalter/jedi-vim"
@@ -190,6 +192,13 @@ if has('autocmd')
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType python setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
   autocmd FileType go setlocal omnifunc=gocomplete#Complete
+
+  " Javascript beautification.
+  autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+  " for html
+  autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+  " for css or scss
+  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 endif
 
 " ----------------------------------------------------------------------
