@@ -34,8 +34,8 @@ if command -v 'brew' &>/dev/null; then
     #brew install bash-completion
     BREWED_PACKAGES="$BREWED_PACKAGES bash-completion"
   fi
-  if [ -f `brew --prefix`/etc/autojump ]; then
-    source `brew --prefix`/etc/autojump
+  if [ -f `brew --prefix`/etc/autojump.sh ]; then
+    source `brew --prefix`/etc/autojump.sh
   else
     echo "Installing autojump"
     #brew install autojump
