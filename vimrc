@@ -85,6 +85,7 @@ set history=1000          " Remember these many lines.
 set undolevels=1000       " Allow more undo levels.
 set encoding=utf8        " UTF-8 as standard encoding.
 set ffs=unix,dos,mac     " Use UNIX as standard file type.
+set mouse=a               " On OS X press Option and click.
 
 " ----------------------------------------------------------------------
 " Keyboard bindings and arpeggios (keychords).
@@ -125,8 +126,21 @@ nnoremap ; :
 cmap w!! w !sudo tee % >/dev/null
 
 " Directory navigation.
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree
+
+" Tab navigation.
+map <leader>n <ESC>:tabprevious<CR>
+map <leader>m <ESC>:tabnext<CR>
+
+" Window navigation.
+map <leader>j <c-w>j
+map <leader>h <c-w>h
+map <leader>k <c-w>k
+map <leader>l <c-w>l
+
+" Sort lines.
+vnoremap <leader>s :sort<CR>
 
 
 " ----------------------------------------------------------------------
@@ -339,7 +353,8 @@ set autoindent                  " Automatically indent.
 set smartindent                 " Smart indent.
 set nowrap                      " Don't wrap lines.
 
-set backspace=eol,start,indent  " Tell backspace to behave.
+set backspace=2                 " Make backspace behave.
+" set backspace=eol,start,indent  " Tell backspace to behave.
 set whichwrap+=<,>,h,l
 
 " Because Emacs just pwns Vim in this department.
@@ -398,6 +413,6 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " Automatically reload vimrc.
 " Source the vimrc file after saving it
 "if has("autocmd")
-"  autocmd bufwritepost .vimrc source $MYVIMRC
-"  autocmd bufwritepost vimrc source $MYVIMRC
+  "autocmd bufwritepost .vimrc source %
+  " autocmd bufwritepost *vimrc source %
 "endif
