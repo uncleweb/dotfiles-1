@@ -26,6 +26,7 @@
 set nocompatible         " Don't be compatible with vi.
 filetype off             " Required by Vundle.
 
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -146,6 +147,8 @@ vnoremap <leader>s :sort<CR>
 vnoremap < <gv  " Better outdent.
 vnoremap > >gv  " Better indent.
 
+" Remove trailing whitespace on <leader>S
+nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
 " ----------------------------------------------------------------------
 " Clipboard.
@@ -324,21 +327,6 @@ set laststatus=2             " Always show the status line.
 set cmdheight=2              " Height of the command bar.
 set title
 
-
-if has("gui_running")
-  colorscheme desert
-  " set guioptions-=m          " Remove the menu bar.
-  " set guioptions-=T          " Remove the toolbar.
-  set guioptions+=a            " Interact with the system clipboard.
-  if has("gui_macvim")
-    set guifont=Monaco:h13
-    set lines=50 columns=120
-  endif
-else
-  " colorscheme desert
-  colorscheme torte
-endif
-
 " ----------------------------------------------------------------------
 " Indentation and whitespace.
 " ----------------------------------------------------------------------
@@ -361,6 +349,8 @@ set backspace=2                 " Make backspace behave.
 " set backspace=eol,start,indent  " Tell backspace to behave.
 set whichwrap+=<,>,h,l
 
+
+
 " Because Emacs just pwns Vim in this department.
 " See: http://smalltalk.gnu.org/blog/bonzinip/emacs-ifying-vims-autoindent
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
@@ -382,6 +372,27 @@ if has("autocmd")
   au InsertLeave * match ExtraWhitespace /\s\+$/
 endif
 
+" Remove trailing whitespace automatically for these files.
+"if has("autocmd")
+"  autocmd FileType c,cpp,java,php,python,javascript,go autocmd BufWritePre <buffer> :%s/\s\+$//e
+"endif
+
+" Deletes trailing whitespace.
+func! DeleteTrailingWhitespace()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+
+if has("autocmd")
+  autocmd BufWritePre *.py :call DeleteTrailingWhitespace()
+  autocmd BufWritePre *.js :call DeleteTrailingWhitespace()
+  autocmd BufWritePre *.coffee :call DeleteTrailingWhitespace()
+  autocmd BufWritePre *.go :call DeleteTrailingWhitespace()
+  autocmd BufWritePre .vimrc :call DeleteTrailingWhitespace()
+  autocmd BufWritePre vimrc :call DeleteTrailingWhitespace()
+endif
+
 " Highlight lines that are longer than the right margin.
 function! HighlightTooLongLines()
   highlight def link RightMargin Error
@@ -399,6 +410,7 @@ augroup END
 " set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 
+
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -412,25 +424,29 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Deletes trailing whitespace.
-func! DeleteTrailingWhitespace()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-
-if has("autocmd")
-  autocmd BufWrite *.py :call DeleteTrailingWhitespace()
-  autocmd BufWrite *.coffee :call DeleteTrailingWhitespace()
-  autocmd BufWrite *.go :call DeleteTrailingWhitespace()
-  autocmd BufWrite .vimrc :call DeleteTrailingWhitespace()
-endif
 
 
 " -------------------------------------------------------------------
 " Programming language specific.
 " -------------------------------------------------------------------
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" -------------------------------------------------------------------
+" Color schemes. Apply this last.
+" -------------------------------------------------------------------
+if has("gui_running")
+  colorscheme desert
+  " set guioptions-=m          " Remove the menu bar.
+  " set guioptions-=T          " Remove the toolbar.
+  set guioptions+=a            " Interact with the system clipboard.
+  if has("gui_macvim")
+    set guifont=Monaco:h13
+    set lines=50 columns=120
+  endif
+else
+  " colorscheme desert
+  colorscheme torte
+endif
 
 " Automatically reload vimrc.
 " Source the vimrc file after saving it
