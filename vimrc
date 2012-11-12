@@ -105,7 +105,7 @@ nmap <leader>q :q<CR>
 nmap <leader>p "+p
 
 " Show the gitv log.
-nmap <leader>g :Gitv<CR>
+nmap <leader>G :Gitv<CR>
 
 " Undo tree toggle.
 nmap <leader>u :GundoToggle<CR>
