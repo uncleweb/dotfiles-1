@@ -183,9 +183,10 @@ set pumheight=6             " Keep a small completion window
 
 " Programming language specific autocompletion.
 if has('autocmd')
-  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python set omnifunc=pythoncomplete#Complete
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType python setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+  autocmd FileType go setlocal omnifunc=gocomplete#Complete
 endif
 
 " ----------------------------------------------------------------------
@@ -218,7 +219,6 @@ if !exists('g:neocomplcache_omni_patterns')
 endif
 
 " Go lang completion. https://github.com/Shougo/neocomplcache/issues/134
-autocmd FileType go setlocal omnifunc=gocomplete#Complete
 let g:neocomplcache_omni_patterns['go'] = '\%(\.\|->\)\w*'
 
 " Define keyword.
