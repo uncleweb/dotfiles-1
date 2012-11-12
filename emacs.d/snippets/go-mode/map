@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: map type definition
+# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
+# --
+map[$1]$0

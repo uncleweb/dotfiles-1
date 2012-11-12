@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : for ... in ... : ...
+# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
+# --
+for ${var} in ${collection}:
+  $0
