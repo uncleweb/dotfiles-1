@@ -36,6 +36,8 @@ if command -v 'brew' &>/dev/null; then
   fi
   if [ -f `brew --prefix`/etc/autojump.sh ]; then
     source `brew --prefix`/etc/autojump.sh
+  elif [ -f `brew --prefix`/etc/autojump ]; then
+    source `brew --prefix`/etc/autojump
   else
     echo "Installing autojump"
     #brew install autojump
