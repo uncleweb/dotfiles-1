@@ -37,3 +37,5 @@
     show-rev-graph = yes
 [push]
 #    default = matching
+[core]
+	editor = /usr/bin/vim
