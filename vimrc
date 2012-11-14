@@ -357,8 +357,8 @@ set autoindent                  " Automatically indent.
 set smartindent                 " Smart indent.
 set nowrap                      " Don't wrap lines.
 
-set backspace=2                 " Make backspace behave.
-" set backspace=eol,start,indent  " Tell backspace to behave.
+"set backspace=2                 " Make backspace behave.
+set backspace=eol,start,indent  " Tell backspace to behave.
 set whichwrap+=<,>,h,l
 
 
@@ -384,11 +384,6 @@ if has("autocmd")
   au InsertLeave * match ExtraWhitespace /\s\+$/
 endif
 
-" Remove trailing whitespace automatically for these files.
-"if has("autocmd")
-"  autocmd FileType c,cpp,java,php,python,javascript,go autocmd BufWritePre <buffer> :%s/\s\+$//e
-"endif
-
 " Deletes trailing whitespace.
 func! DeleteTrailingWhitespace()
   exe "normal mz"
@@ -397,10 +392,8 @@ func! DeleteTrailingWhitespace()
 endfunc
 
 if has("autocmd")
-  autocmd BufWritePre *.py :call DeleteTrailingWhitespace()
-  autocmd BufWritePre *.js :call DeleteTrailingWhitespace()
+  autocmd FileType python,javascript,go,text,php,c,cpp,java autocmd BufWritePre <buffer> :call DeleteTrailingWhitespace()
   autocmd BufWritePre *.coffee :call DeleteTrailingWhitespace()
-  autocmd BufWritePre *.go :call DeleteTrailingWhitespace()
   autocmd BufWritePre .vimrc :call DeleteTrailingWhitespace()
   autocmd BufWritePre vimrc :call DeleteTrailingWhitespace()
 endif
