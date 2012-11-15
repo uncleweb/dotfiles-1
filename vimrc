@@ -196,6 +196,13 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 " Allow autocomplete suggestions with this keybinding too.
 " inoremap <c-space> <c-x><c-o>
 
+" Replace line with shell command output.
+map <F5> !!sh<CR><ESC>
+
+" Append line with shell command output.
+map <s-F5> yyp!!sh<CR><ESC>
+
+
 
 " ----------------------------------------------------------------------
 " Clipboard.
