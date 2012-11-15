@@ -417,8 +417,6 @@ set backspace=eol,start,indent  " Tell backspace to behave.
 set whichwrap+=<,>,h,l
 
 
-
-
 " Because Emacs just pwns Vim in this department.
 " See: http://smalltalk.gnu.org/blog/bonzinip/emacs-ifying-vims-autoindent
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
@@ -454,6 +452,17 @@ if has("autocmd")
   autocmd BufWritePre vimrc :call DeleteTrailingWhitespace()
 endif
 
+" Removes trailing blank lines from files and preserve cursor position.
+" See:
+" http://stackoverflow.com/questions/7495932/how-can-i-trim-blank-lines-at-the-end-of-file-in-vim
+function! TrimEndBlankLines()
+  let save_cursor = getpos(".")
+  :silent! %s#\($\n\s*\)\+\%$##
+  call setpos('.', save_cursor)
+endfunction
+au BufWritePre <buffer> :call TrimEndBlankLines()
+
+
 " Highlight lines that are longer than the right margin.
 function! HighlightTooLongLines()
   highlight def link RightMargin Error
@@ -466,10 +475,10 @@ augroup filetypedetect
   au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
 augroup END
 
+
 " Highlight whitespace.
 " set list
 " set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
 
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
