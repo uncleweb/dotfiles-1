@@ -129,6 +129,7 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 
 " Fast save.
 nmap <leader>w :w!<CR>
+nmap <leader>W :wq<CR>
 
 " Quit window.
 nmap <leader>q :q<CR>
