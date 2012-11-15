@@ -57,7 +57,7 @@ Bundle "kana/vim-arpeggio"
 " Bundle 'tomtom/tlib_vim'
 
 " This snippet expansion extension is better.
-" Bundle 'SirVer/ultisnips'
+Bundle 'SirVer/ultisnips'
 
 " Programming languages.
 Bundle "pangloss/vim-javascript"
@@ -100,6 +100,8 @@ set undolevels=1000       " Allow more undo levels.
 "Arpeggio inoremap ;'  :CommandT
 "call arpeggio#map('i', '', 0, ';\'', '<Esc>')
 
+" Expand ultisnips snippet.
+let g:UltiSnipsExpandTrigger="<c-j>"
 
 " Fast save.
 nmap <leader>w :w!<CR>
