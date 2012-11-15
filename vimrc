@@ -74,6 +74,8 @@ set rtp+=$GOROOT/misc/vim
 " Required by Vundle.
 filetype plugin indent on
 
+" Automatically reload vimrc upon save.
+autocmd! BufWritePost .vimrc source %
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
