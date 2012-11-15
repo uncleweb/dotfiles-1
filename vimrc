@@ -41,13 +41,15 @@ Bundle 'gregsexton/gitv'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/SearchComplete'
 
 " Power editing.
 Bundle 'Shougo/neocomplcache'
 Bundle 'sjl/gundo.vim'
 Bundle 'Raimondi/delimitMate'
 " Bundle 'vim-scripts/paredit.vim'
-Bundle "kana/vim-arpeggio"
+Bundle 'kana/vim-arpeggio'
+Bundle 'scrooloose/nerdcommenter'
 
 " The main msanders snipmate repository has been abandoned. garbas is now
 " maintaining the snipmate plugin. The following are the extensions required
@@ -60,12 +62,12 @@ Bundle "kana/vim-arpeggio"
 Bundle 'SirVer/ultisnips'
 
 " Programming languages.
-Bundle "pangloss/vim-javascript"
+Bundle 'pangloss/vim-javascript'
 " Requires nodejs.
 Bundle 'maksimr/vim-jsbeautify'
 " requires `sudo pip install jedi`.
 " breaks autocompletion and completes without me pressing tab.
-" Bundle "davidhalter/jedi-vim"
+" Bundle 'davidhalter/jedi-vim'
 
 set rtp+=$GOROOT/misc/vim
 
@@ -125,7 +127,7 @@ nmap <leader>vr :source $MYVIMRC<CR>
 " Package management.
 nmap <leader>vi :BundleInstall<CR>
 nmap <leader>vc :BundleClean!<CR>
-nmap <leader>vv :BundleClean!<CR>q:BundleInstall<CR>q
+nmap <leader>vv :source $MYVIMRC<CR>:BundleClean!<CR>q:BundleInstall<CR>q
 
 " Strip off 2 keystrokes from almost every Vim command by aliasing this.
 nnoremap ; :
