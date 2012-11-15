@@ -198,19 +198,6 @@ set clipboard+=unnamedplus
 " ----------------------------------------------------------------------
 set hidden                      " Hide buffers instead of closing them.
 
-" import os.path
-" import sys
-" import vim
-" if 'VIRTUAL_ENV
-"     project_base_dir = os.environ['VIRTUAL_ENV
-"         sys.path.insert(0, project_base_dir
-"             activate_this = os.path.join(project_base_dir,
-"             'bin/activate_this.py''
-"                 execfile(activate_this, dict('
-"                 EOF
-"                 endif'
-
-
 " ----------------------------------------------------------------------
 " Autocompletion for VIM commands.
 " ----------------------------------------------------------------------
