@@ -67,7 +67,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'maksimr/vim-jsbeautify'
 " requires `sudo pip install jedi`.
 " breaks autocompletion and completes without me pressing tab.
-" Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
+"Bundle 'klen/python-mode'
 
 set rtp+=$GOROOT/misc/vim
 
@@ -81,6 +82,25 @@ autocmd! BufWritePost .vimrc source %
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
+
+
+" ----------------------------------------------------------------------
+" Add the virtualenv site-packages path to python path.
+" ----------------------------------------------------------------------
+if has('python')
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endif
+
+
 
 " ----------------------------------------------------------------------
 " Paredit mode.
@@ -178,6 +198,19 @@ set clipboard+=unnamedplus
 " ----------------------------------------------------------------------
 set hidden                      " Hide buffers instead of closing them.
 
+" import os.path
+" import sys
+" import vim
+" if 'VIRTUAL_ENV
+"     project_base_dir = os.environ['VIRTUAL_ENV
+"         sys.path.insert(0, project_base_dir
+"             activate_this = os.path.join(project_base_dir,
+"             'bin/activate_this.py''
+"                 execfile(activate_this, dict('
+"                 EOF
+"                 endif'
+
+
 " ----------------------------------------------------------------------
 " Autocompletion for VIM commands.
 " ----------------------------------------------------------------------
@@ -198,11 +231,17 @@ set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
 
 " Programming language specific autocompletion.
+let g:jedi#popup_on_dot = 0
 if has('autocmd')
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType python setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
   autocmd FileType go setlocal omnifunc=gocomplete#Complete
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+  autocmd FileType c setlocal omnifunc=ccomplete#Complete
 
   " Javascript beautification.
   autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
@@ -334,7 +373,7 @@ set lazyredraw        " Don't redraw while executing macros
 " ----------------------------------------------------------------------
 set autoread                 " Automatically reload files that change on disk.
 set nobackup                 " Do not create backup files.
-set nowb                     " No writeback.
+set nowritebackup            " No writeback.
 set noswapfile               " No swapfiles.
 set modeline                 " Allow vim modelines in files.
 set modelines=5              " Lines within which modelines can be found.
