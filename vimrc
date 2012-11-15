@@ -193,6 +193,10 @@ nmap Q gqap
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
+" Allow autocomplete suggestions with this keybinding too.
+" inoremap <c-space> <c-x><c-o>
+
+
 " ----------------------------------------------------------------------
 " Clipboard.
 " ----------------------------------------------------------------------
