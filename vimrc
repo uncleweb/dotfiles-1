@@ -112,6 +112,7 @@ nmap <leader>w :w!<CR>
 
 " Quit window.
 nmap <leader>q :q<CR>
+nmap <leader>Q :qa!<CR>
 
 " Paste from clipboard.
 nmap <leader>p "+p
@@ -157,6 +158,10 @@ vnoremap <leader>s :sort<CR>
 " Indentation.
 vnoremap < <gv  " Better outdent.
 vnoremap > >gv  " Better indent.
+
+" Alignment and filling.
+vmap Q gq
+nmap Q gqap
 
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
@@ -355,8 +360,8 @@ set tabstop=2                   " A tab stops after 2 spaces.
 set softtabstop=2               " A soft tab stops after 2 spaces.
 set shiftround                  " Indenting with < and > is times shiftwidth.
 
-set linebreak
-set tw=80                       " Line break on 80 characters.
+"set linebreak
+"set tw=80                       " Line break on 80 characters.
 set colorcolumn=80              " Show a right margin.
 
 set autoindent                  " Automatically indent.
@@ -366,6 +371,7 @@ set nowrap                      " Don't wrap lines.
 "set backspace=2                 " Make backspace behave.
 set backspace=eol,start,indent  " Tell backspace to behave.
 set whichwrap+=<,>,h,l
+
 
 
 
