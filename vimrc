@@ -163,8 +163,8 @@ nmap <leader>e :NERDTreeToggle<CR>
 " autocmd vimenter * NERDTree
 
 " Tab navigation.
-map <leader>[ <ESC>:tabprevious<CR>
-map <leader>] <ESC>:tabnext<CR>
+map <leader>{ <ESC>:tabprevious<CR>
+map <leader>} <ESC>:tabnext<CR>
 map <leader>n <ESC>:tabnew<CR>
 
 " Window navigation.
@@ -172,6 +172,8 @@ map <leader>j <c-w>j
 map <leader>h <c-w>h
 map <leader>k <c-w>k
 map <leader>l <c-w>l
+map <leader>[ <c-w>h
+map <leader>] <c-w>l
 
 " Window splitting.
 nmap <leader>\ :vsplit<CR>
