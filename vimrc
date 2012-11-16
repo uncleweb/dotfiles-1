@@ -125,7 +125,7 @@ set undolevels=1000       " Allow more undo levels.
 "call arpeggio#map('i', '', 0, ';\'', '<Esc>')
 
 " Jump to recent files.
-nmap <leader>o :CommandTJump<CR>
+nnoremap <silent> <Leader>o :CommandTJump<CR>
 
 " Expand ultisnips snippet.
 let g:UltiSnipsExpandTrigger="<c-j>"
