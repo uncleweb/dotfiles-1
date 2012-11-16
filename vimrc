@@ -114,7 +114,9 @@ endif
 set encoding=utf8        " UTF-8 as standard encoding.
 set ffs=unix,dos,mac     " Use UNIX as standard file type.
 set history=1000          " Remember these many lines.
-" set mouse=a               " On OS X press Option and click.
+if has("mouse")
+  set mouse=a               " On OS X press Option and click.
+endif
 set undolevels=1000       " Allow more undo levels.
 
 " ----------------------------------------------------------------------
