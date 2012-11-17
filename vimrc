@@ -518,6 +518,8 @@ if has("gui_running")
   set lines=50 columns=120
   if has("gui_macvim")
     set guifont=Monaco:h13
+  elseif has("gui_gtk2")
+    set guifont=Monaco\ 11
   endif
 else
   " colorscheme desert
