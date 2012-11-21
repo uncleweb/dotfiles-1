@@ -452,7 +452,7 @@ func! DeleteTrailingWhitespace()
 endfunc
 
 if has("autocmd")
-  autocmd FileType python,javascript,go,text,php,c,cpp,java autocmd BufWritePre <buffer> :call DeleteTrailingWhitespace()
+  autocmd FileType python,javascript,go,sh,bash,yaml,csh,text,php,c,cpp,java autocmd BufWritePre <buffer> :call DeleteTrailingWhitespace()
   autocmd BufWritePre *.coffee :call DeleteTrailingWhitespace()
   autocmd BufWritePre .vimrc :call DeleteTrailingWhitespace()
   autocmd BufWritePre vimrc :call DeleteTrailingWhitespace()
