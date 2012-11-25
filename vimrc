@@ -481,6 +481,20 @@ augroup filetypedetect
   au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
 augroup END
 
+" ----------------------------------------------------------------
+" Automatically assign executable permissions if file begins with #!
+" and contains '/bin/' in the path.
+function! AutoAssignExecutablePermissions()
+  if getline(1) =~ "^#!"
+    if getline(1) =~ "/bin/"
+      silent !chmod a+x %
+    elseif getline(1) =~ "/usr/bin/"
+      silent !chmod a+x %
+    endif
+  endif
+endfunction
+autocmd BufWritePost * :call AutoAssignExecutablePermissions()
+
 
 " Highlight whitespace.
 " set list
