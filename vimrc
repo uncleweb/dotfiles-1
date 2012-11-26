@@ -466,7 +466,8 @@ function! TrimEndBlankLines()
   :silent! %s#\($\n\s*\)\+\%$##
   call setpos('.', save_cursor)
 endfunction
-au BufWritePre <buffer> :call TrimEndBlankLines()
+au FileType * autocmd BufWritePre <buffer> :call TrimEndBlankLines()
+
 
 
 " Highlight lines that are longer than the right margin.
