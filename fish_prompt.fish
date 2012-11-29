@@ -46,6 +46,8 @@ function fish_prompt --description 'Write out the prompt'
     if [ (_is_git_dirty) ]
       set -l dirty "$yellow*"
       set git_info "$git_info$dirty$__fish_prompt_normal "
+    else
+      set git_info "$git_info$__fish_prompt_normal "
     end
   end
 
