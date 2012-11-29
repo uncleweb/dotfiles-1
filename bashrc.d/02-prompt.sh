@@ -195,11 +195,11 @@ function _proml {
   then
     # Root user.
     local COLOR_FG_USR="${COLOR_FG_RED}"
-    local DOLLAR="\\#"
+    local DOLLAR=" bash\\#"
   else
     # Normal user.
     local COLOR_FG_USR="${COLOR_FG_GREEN}"
-    local DOLLAR="\\$"
+    local DOLLAR=" bash\\$"
   fi
 
   case $TERM in
