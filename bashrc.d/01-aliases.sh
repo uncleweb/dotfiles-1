@@ -19,3 +19,8 @@
 # Note:
 # Many aliases are portably and functionally equivalently
 # defined in OS-specific shell-scripts.
+
+# Because not having my configuration when editing system configuration sucks!
+svim() { 
+  sudo vim -u $HOME/.vimrc @$ 
+};
