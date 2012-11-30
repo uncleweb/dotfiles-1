@@ -29,6 +29,13 @@ cd ~/.vim/bundle/Command-T/ruby/command-t && ruby extconf.rb && make && cd
 mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/ftplugin
 
+
+# Fish shell configuration.
+mkdir -p ~/.config/fish
+ln -s ~/.dotfiles/config/fish/functions ~/.config/fish/functions
+ln -s ~/.dotfiles/config/fish/config.fish ~/.config/fish/config.fish
+
+
 cd ~/.vim/autoload && curl -O https://raw.github.com/nsf/gocode/master/vim/autoload/gocomplete.vim
 cd ~/.vim/ftplugin && curl -O https://raw.github.com/nsf/gocode/master/vim/ftplugin/go.vim
 

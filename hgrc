@@ -33,10 +33,10 @@ intree = true
 
 [web]
 # Linux.
-cacerts = /etc/ssl/certs/ca-certificates.crt
+#cacerts = /etc/ssl/certs/ca-certificates.crt
 # Mac OS X.
 # From:
 # http://mercurial.selenic.com/wiki/CACertificates#Configuration_of_HTTPS_certificate_authorities
 # openssl req -new -x509 -extensions v3_ca -keyout /dev/null -out dummycert.pem -days 3650
 # sudo cp dummycert.pem /etc/hg-dummy-cert.pem
-# cacerts = /etc/hg-dummy-cert.pem
+cacerts = /etc/hg-dummy-cert.pem
