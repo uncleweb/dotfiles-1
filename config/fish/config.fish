@@ -1,4 +1,8 @@
 if status --is-interactive 
-  set PATH $PATH /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /sbin /bin
+  set PYTHONPATH $PYTHONPATH /usr/local/lib/python2.7/site-packages
+  set GOROOT /usr/local/go
+  set GOBIN /usr/local/go/bin
+  set NODE_BIN /usr/local/share/npm/bin
+  set PATH $PATH $GOBIN $NODE_BIN /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /sbin /bin
 end
 
