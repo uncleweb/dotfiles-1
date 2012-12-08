@@ -3,6 +3,6 @@ if status --is-interactive
   set GOROOT /usr/local/go
   set GOBIN /usr/local/go/bin
   set NODE_BIN /usr/local/share/npm/bin
-  set PATH $PATH $GOBIN $NODE_BIN /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /sbin /bin
+  set PATH $GOBIN $NODE_BIN /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /sbin /bin $PATH
 end
 
