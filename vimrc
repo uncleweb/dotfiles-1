@@ -24,6 +24,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible         " Don't be compatible with vi.
+filetype on              " Turn it on, then off. Otherwise, breaks git commits.
 filetype off             " Required by Vundle.
 
 
