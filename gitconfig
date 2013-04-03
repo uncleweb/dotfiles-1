@@ -17,11 +17,11 @@
     c = commit -s
     changelog = log --pretty='format:* %s'
     co = checkout
+    conflicts = !git ls-files -u | cut -f 2 | sort -u
+    get-tree = merge --squash -s subtree --no-commit
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     s = status -s
     unstage = reset HEAD
-    conflicts = !git ls-files -u | cut -f 2 | sort -u
-    get-tree = merge --squash -s subtree --no-commit
 
 [diff]
     guitool = meld
