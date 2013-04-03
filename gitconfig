@@ -21,6 +21,7 @@
     s = status -s
     unstage = reset HEAD
     conflicts = !git ls-files -u | cut -f 2 | sort -u
+    get-tree = merge --squash -s subtree --no-commit
 
 [diff]
     guitool = meld
