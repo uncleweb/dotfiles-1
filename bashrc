@@ -163,4 +163,4 @@ if [ ! -f $BASH_IDO ]; then
   git submodule update --init --recursive
   popd
 fi
-source $BASH_IDO && _log "Loading $BASH_IDO"
+#source $BASH_IDO && _log "Loading $BASH_IDO"
