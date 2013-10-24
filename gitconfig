@@ -14,7 +14,8 @@
     authors = log --all --format='%aN <%aE>'
     b = branch
     ba = branch -a
-    c = commit -s
+    cs = commit -s
+    c = commit -s -m
     changelog = log --pretty='format:* %s'
     co = checkout
     conflicts = !git ls-files -u | cut -f 2 | sort -u

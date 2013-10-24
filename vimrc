@@ -60,7 +60,7 @@ Bundle 'scrooloose/nerdcommenter'
 " Bundle 'tomtom/tlib_vim'
 
 " This snippet expansion extension is better.
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 
 " Programming languages.
 Bundle 'pangloss/vim-javascript'
