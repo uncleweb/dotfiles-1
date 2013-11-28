@@ -33,7 +33,7 @@ alias md5sum='md5 -5'
 
 # Other aliases
 alias grep='grep -I --color -n'
-alias o='open'
+#alias open='open'
 alias rgrep='rgrep -I --color -n'
 
 # Applications

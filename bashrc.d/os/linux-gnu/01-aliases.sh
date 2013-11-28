@@ -41,5 +41,5 @@ alias ll='ls -ahlF'
 
 # Other aliases
 alias grep='grep -I --color -n'
-alias o='nautilus'
+alias open='nautilus'
 alias rgrep='rgrep -I --color -n'
