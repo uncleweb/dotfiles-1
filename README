@@ -2,13 +2,13 @@ Here lie dotfiles that I regularly edit/change.
 
 Clone this repository to ~/.dotfiles::
 
-    git clone https://code.google.com/p/yesudeep-dotfiles/ ~/.dotfiles
+    git clone git://github.com/gorakhargosh/dotfiles.git ~/.dotfiles
 
 Put this into your ~/.bashrc or ~/.profile
 
     # Customizations.
-    if [ -f ~/.dotfiles/profile ]; then
-        . ~/.dotfiles/profile
+    if [ -f ~/.dotfiles/bashrc ]; then
+        . ~/.dotfiles/bashrc
     fi
 
 Enjoy!
