@@ -21,9 +21,10 @@ function fish_prompt --description 'Write out the prompt'
 
 
   # Just calculate these once, to save a few cycles when displaying the prompt
-  if not set -q __fish_prompt_datetime
-    set -g __fish_prompt_datetime (date)
-  end
+  #if not set -q __fish_prompt_datetime
+  #  set -g __fish_prompt_datetime (date)
+  #end
+  set -g __fish_prompt_datetime (date)
 
   if not set -q __fish_prompt_hostname
     # set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
