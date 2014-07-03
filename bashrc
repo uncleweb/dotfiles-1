@@ -146,9 +146,9 @@ case $HOSTNAME in
         source $f
       done
       unset f
-    else
-      echo "WARNING: You do not have Google-specific shell configuration"
-      echo "installed at $HOME/.$CORP_GOOGLE_DOMAIN."
+    #else
+    #  echo "WARNING: You do not have Google-specific shell configuration"
+    #  echo "installed at $HOME/.$CORP_GOOGLE_DOMAIN."
     fi;;
 esac
 
