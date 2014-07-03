@@ -19,11 +19,6 @@ function fish_prompt --description 'Write out the prompt'
   set -l green (set_color -o green)
   set -l normal (set_color normal)
 
-
-  # Just calculate these once, to save a few cycles when displaying the prompt
-  #if not set -q __fish_prompt_datetime
-  #  set -g __fish_prompt_datetime (date)
-  #end
   set -g __fish_prompt_datetime (date)
 
   if not set -q __fish_prompt_hostname
