@@ -85,6 +85,6 @@
 # Please add the line to ~/.bashrc :
 # [[ -s ~/.autojump/etc/profile.d/autojump.bash ]] && source ~/.autojump/etc/profile.d/autojump.bash
 
-if [ -f "/usr/share/autojump/autojump.bash" ]; then
-  source /usr/share/autojump/autojump.bash
-fi
+# if [ -f "/usr/share/autojump/autojump.bash" ]; then
+#   source /usr/share/autojump/autojump.bash
+# fi
