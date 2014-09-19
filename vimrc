@@ -27,6 +27,9 @@ Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 
+" Language-specific
+Plug 'fatih/vim-go'
+
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -299,3 +302,22 @@ endif
 " Plugin configuration
 " ----------------------------------------------------------------------------
 map <C-n> :NERDTreeToggle<CR>
+
+" Go lang.
+au FileType go nmap <Leader>s <Plug>(go-implements)   " interfaces implemented
+au FileType go nmap <Leader>i <Plug>(go-info)         " show type info
+
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap gd <Plug>(go-def)
+
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
