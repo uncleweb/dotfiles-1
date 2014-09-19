@@ -34,6 +34,8 @@ curl -fLo ${VIM_DIR}/autoload/plug.vim \
 vim +PlugInstall +qall
 cd ~/.vim/autoload && curl -O https://raw.github.com/nsf/gocode/master/vim/autoload/gocomplete.vim
 cd ~/.vim/ftplugin && curl -O https://raw.github.com/nsf/gocode/master/vim/ftplugin/go.vim
+cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
+
 
 # Fish shell configuration.
 mkdir -p ~/.config/fish

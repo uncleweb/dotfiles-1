@@ -30,6 +30,8 @@ Plug 'plasticboy/vim-markdown'
 " Language-specific
 Plug 'fatih/vim-go'
 
+Plug 'Valloric/YouCompleteMe'
+
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
