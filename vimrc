@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -9,17 +9,21 @@ filetype off        " required by vundle.
 " Automatically reload vimrc upon save.
 autocmd! BufWritePost .vimrc source %
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Plugins
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/vim-easy-align'
 
-Plug 'Lokaltog/powerline'
+" Plug 'Lokaltog/powerline'
+Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
+Plug 'kien/ctrlp.vim'
+Plug 'mbbill/undotree'
+Plug 'airblade/vim-gitgutter'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -61,9 +65,9 @@ set modeline                 " Allow vim modelines in files.
 set modelines=5              " Lines within which modelines can be found.
 
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Colors, fonts, and appearance
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 syntax enable                   " enable syntax processing
 
 set number                      " show line numbers
@@ -96,15 +100,15 @@ augroup filetypedetect
 augroup END
 
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Performance optimizations
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 set lazyredraw      " redraw only when we need to
 
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Autocompletion and suggestions
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 set wildmode=list:longest
 set wildmenu        " visual autocomplete for commands
 
@@ -114,9 +118,9 @@ set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Search and matching
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 set incsearch
 set hlsearch
 set ignorecase        " Ignore case when searching
@@ -127,9 +131,9 @@ set mat=2             " Highlight parens for duration.
 noremap <leader><space> :nohlsearch<CR> " turn off search highlight
 
 
-" ----------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Editing.
-" ----------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 set encoding=utf8         " UTF-8 as standard encoding.
 set ffs=unix,dos,mac      " Use UNIX as standard file type.
 set history=1000          " Remember these many lines.
@@ -183,9 +187,9 @@ function! TrimEndBlankLines()
 endfunction
 au FileType * autocmd BufWritePre <buffer> :call TrimEndBlankLines()
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Keyboard bindings.
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 "
 " nnoremap <silent><leader>n :set rnu! rnu? <cr>
@@ -245,18 +249,18 @@ map <F5> !!sh<CR><ESC>
 map <s-F5> yyp!!sh<CR><ESC>
 
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Clipboard.
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " set paste                       " Don't automatically indent pastes.
 set pastetoggle=<F2>            " Allow toggling paste.
 set clipboard+=unnamedplus
 
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Automatically assign executable permissions if file begins with #!
 " and contains '/bin/' in the path.
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 function! AutoAssignExecutablePermissions()
   if getline(1) =~ "^#!"
     if getline(1) =~ "/bin/"
@@ -269,9 +273,9 @@ endfunction
 autocmd BufWritePost * :call AutoAssignExecutablePermissions()
 
 
-" -------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 " Color schemes. Apply this last.
-" -------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 if has("gui_running")
   colorscheme desert
   " set guioptions-=m          " Remove the menu bar.
