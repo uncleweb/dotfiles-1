@@ -287,15 +287,7 @@ autocmd BufWritePost * :call AutoAssignExecutablePermissions()
 " Color schemes. Apply this last.
 " ----------------------------------------------------------------------------
 let g:molokai_original = 1
-if has("gui_running")
-  " colorscheme desert
-  colorscheme molokai
-else
-  " colorscheme desert
-  " colorscheme torte
-  colorscheme molokai
-endif
-
+colorscheme molokai
 
 " Fonts and gui behavior.
 if has("gui_running")
