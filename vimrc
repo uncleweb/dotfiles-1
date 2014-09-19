@@ -291,3 +291,9 @@ else
   " colorscheme desert
   colorscheme torte
 endif
+
+
+" ----------------------------------------------------------------------------
+" Plugin configuration
+" ----------------------------------------------------------------------------
+map <C-n> :NERDTreeToggle<CR>
