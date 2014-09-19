@@ -48,6 +48,9 @@ Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
+" Color schemes.
+Plug 'fatih/molokai'
+
 call plug#end()
 
 " ----------------------------------------------------------------------
@@ -284,7 +287,17 @@ autocmd BufWritePost * :call AutoAssignExecutablePermissions()
 " Color schemes. Apply this last.
 " ----------------------------------------------------------------------------
 if has("gui_running")
-  colorscheme desert
+  " colorscheme desert
+  colorscheme molokai
+else
+  " colorscheme desert
+  colorscheme torte
+endif
+
+let g:molokai_original = 1
+
+" Fonts and gui behavior.
+if has("gui_running")
   " set guioptions-=m          " Remove the menu bar.
   " set guioptions-=T          " Remove the toolbar.
   set guioptions+=a            " Interact with the system clipboard.
@@ -294,11 +307,7 @@ if has("gui_running")
   elseif has("gui_gtk2")
     set guifont=Monaco\ 11
   endif
-else
-  " colorscheme desert
-  colorscheme torte
 endif
-
 
 " ----------------------------------------------------------------------------
 " Plugin configuration
