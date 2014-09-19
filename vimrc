@@ -8,6 +8,7 @@ filetype off        " required by vundle.
 
 " Automatically reload vimrc upon save.
 autocmd! BufWritePost .vimrc source %
+autocmd! BufWritePost vimrc source %
 
 " ----------------------------------------------------------------------------
 " Plugins
@@ -24,6 +25,7 @@ Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
+Plug 'plasticboy/vim-markdown'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -243,10 +245,10 @@ nmap Q gqap
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Replace line with shell command output.
-map <F5> !!sh<CR><ESC>
+map <F7> !!sh<CR><ESC>
 
 " Append line with shell command output.
-map <s-F5> yyp!!sh<CR><ESC>
+map <s-F7> yyp!!sh<CR><ESC>
 
 
 " ----------------------------------------------------------------------------
