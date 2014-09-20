@@ -307,10 +307,11 @@ endif
 " ----------------------------------------------------------------------------
 " Plugin configuration
 " ----------------------------------------------------------------------------
+" Fast file browsing and buffer switching.
 map <leader>o :NERDTreeToggle<CR>
 map <leader>p :CtrlP<CR>
-"let g:ctrlp_map = '<C-p>'
-"let g:ctrlp_cmd = 'CtrlP'
+map <leader>b :CtrlPBuffer<CR>
+map <leader>r :CtrlPMRUFiles<CR>
 
 " Airline
 " Enable the list of buffers
