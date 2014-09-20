@@ -21,18 +21,19 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'Lokaltog/powerline'
 Plug 'bling/vim-airline'
-Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
 Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
-Plug 'plasticboy/vim-markdown'
+Plug 'terryma/vim-multiple-cursors'
 
 " Language-specific
 Plug 'fatih/vim-go'
+Plug 'plasticboy/vim-markdown'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
+Plug 'kien/ctrlp.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -310,8 +311,10 @@ endif
 " Fast file browsing and buffer switching.
 map <leader>o :NERDTreeToggle<CR>
 map <leader>p :CtrlP<CR>
-map <leader>b :CtrlPBuffer<CR>
-map <leader>r :CtrlPMRUFiles<CR>
+"map <leader>b :CtrlPBuffer<CR>
+"map <leader>r :CtrlPMRUFiles<CR>
+let g:ctrlp_map = '<c-P>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Airline
 " Enable the list of buffers
@@ -355,6 +358,14 @@ au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+
+" Map start key separately from next key
+"let g:multi_cursor_start_key='<C-}>'
+"let g:multi_cursor_next_key='<C-}>'
+"let g:multi_cursor_prev_key='<C-{>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
 
 " Compatibility between UltiSnips and YCM.
 " http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
