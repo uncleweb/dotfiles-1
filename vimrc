@@ -30,7 +30,9 @@ Plug 'plasticboy/vim-markdown'
 " Language-specific
 Plug 'fatih/vim-go'
 
+" Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -214,7 +216,7 @@ nmap <leader>q :q<CR>
 nmap <leader>Q :qa!<CR>
 
 " Paste from clipboard.
-nmap <leader>p "+p
+nmap <leader>P "+p
 
 " Edit and reload vim configuration.
 nmap <leader>ve :tabedit $MYVIMRC<CR>
@@ -235,8 +237,8 @@ map <leader>j <c-w>j
 map <leader>h <c-w>h
 map <leader>k <c-w>k
 map <leader>l <c-w>l
-map <leader>[ <c-w>h
-map <leader>] <c-w>l
+"map <leader>[ <c-w>h
+"map <leader>] <c-w>l
 
 " Sort lines.
 vnoremap <leader>s :sort<CR>
@@ -286,7 +288,7 @@ autocmd BufWritePost * :call AutoAssignExecutablePermissions()
 " ----------------------------------------------------------------------------
 " Color schemes. Apply this last.
 " ----------------------------------------------------------------------------
-let g:molokai_original = 1
+" let g:molokai_original = 1
 colorscheme molokai
 
 " Fonts and gui behavior.
@@ -305,7 +307,34 @@ endif
 " ----------------------------------------------------------------------------
 " Plugin configuration
 " ----------------------------------------------------------------------------
-map <C-n> :NERDTreeToggle<CR>
+map <leader>o :NERDTreeToggle<CR>
+map <leader>p :CtrlP<CR>
+"let g:ctrlp_map = '<C-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+
+" Airline
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" To open a new empty buffer
+" " This replaces :tabnew which I used to bind to this mapping
+nmap <leader>t :enew<cr>
+"
+" " Move to the next buffer
+nmap <leader>] :bnext<CR>
+"
+" " Move to the previous buffer
+nmap <leader>[ :bprevious<CR>
+"
+" " Close the current buffer and move to the previous one
+" " This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+"
+" " Show all open buffers and their status
+nmap <leader>bl :ls<CR>
 
 " Go lang.
 au FileType go nmap <Leader>s <Plug>(go-implements)   " interfaces implemented
@@ -325,3 +354,28 @@ au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+" Compatibility between UltiSnips and YCM.
+" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+" this mapping Enter key to <C-y> to chose the current highlight item
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
