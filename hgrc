@@ -12,7 +12,7 @@ qnew = -Ue
 [extensions]
 color =
 hgext.bookmarks =
-hggit =
+#hggit =
 pager =
 
 [color]
@@ -39,4 +39,4 @@ intree = true
 # http://mercurial.selenic.com/wiki/CACertificates#Configuration_of_HTTPS_certificate_authorities
 # openssl req -new -x509 -extensions v3_ca -keyout /dev/null -out dummycert.pem -days 3650
 # sudo cp dummycert.pem /etc/hg-dummy-cert.pem
-cacerts = /etc/hg-dummy-cert.pem
+#cacerts = /etc/hg-dummy-cert.pem
