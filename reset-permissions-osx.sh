@@ -9,4 +9,5 @@ sudo chown yesudeep \
   /usr/local/share \
   /usr/local/sbin \
   /usr/local/include/osxfuse/fuse \
-  /usr/local/include/osxfuse
+  /usr/local/include/osxfuse \
+  /usr/local/go

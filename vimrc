@@ -342,6 +342,8 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 
 " Go lang.
+let g:go_fmt_command = "goimports"
+
 au FileType go nmap <Leader>s <Plug>(go-implements)   " interfaces implemented
 au FileType go nmap <Leader>i <Plug>(go-info)         " show type info
 

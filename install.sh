@@ -28,6 +28,7 @@ ln -s ${PWD}/vimrc ${HOME}/.vimrc
 # ln -s ${PWD}/vim ${HOME}/.vim
 ln -s ${PWD}/hgrc ${HOME}/.hgrc
 
+echo "Please install cmake"
 mkdir -p ${VIM_DIR}/autoload ${VIM_DIR}/ftplugin
 curl -fLo ${VIM_DIR}/autoload/plug.vim \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
