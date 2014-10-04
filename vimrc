@@ -141,7 +141,6 @@ set smartcase         " When searching try to be smart about cases
 set showmatch         " highlight matching parentheses
 set mat=2             " Highlight parens for duration.
 
-noremap <leader><space> :nohlsearch<CR> " turn off search highlight
 
 
 " ----------------------------------------------------------------------------
@@ -206,7 +205,9 @@ au FileType * autocmd BufWritePre <buffer> :call TrimEndBlankLines()
 
 " Clear the last search highlighting in vim.
 " See: https://coderwall.com/p/pcha8g
-nnoremap <esc> :noh<return><esc>
+" Don't do this.
+" nnoremap <esc> :noh<return><esc>
+noremap <leader><space> :nohlsearch<CR> " turn off search highlight
 
 "
 " nnoremap <silent><leader>n :set rnu! rnu? <cr>
