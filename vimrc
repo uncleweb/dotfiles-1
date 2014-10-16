@@ -27,6 +27,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Language-specific
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " Completion and suggestions.
@@ -399,3 +400,11 @@ let g:UltiSnipsListSnippets="<c-e>"
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Tabularize plugin.
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
