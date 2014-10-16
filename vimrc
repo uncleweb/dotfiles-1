@@ -401,6 +401,7 @@ let g:UltiSnipsListSnippets="<c-e>"
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" See http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " Tabularize plugin.
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
