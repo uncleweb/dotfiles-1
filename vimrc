@@ -26,6 +26,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 
 " Language-specific
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -184,7 +185,7 @@ func! DeleteTrailingWhitespace()
 endfunc
 
 if has("autocmd")
-  autocmd FileType markdown,python,javascript,go,sh,bash,yaml,csh,text,php,c,cpp,java autocmd BufWritePre <buffer> :call DeleteTrailingWhitespace()
+  autocmd FileType dart,markdown,python,javascript,go,sh,bash,yaml,csh,text,php,c,cpp,java autocmd BufWritePre <buffer> :call DeleteTrailingWhitespace()
   autocmd BufWritePre *.coffee :call DeleteTrailingWhitespace()
   autocmd BufWritePre .vimrc :call DeleteTrailingWhitespace()
   autocmd BufWritePre vimrc :call DeleteTrailingWhitespace()
