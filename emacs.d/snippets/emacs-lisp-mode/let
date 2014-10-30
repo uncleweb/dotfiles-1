@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: (let ... )
-# key: let
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-(let ($1) $0)

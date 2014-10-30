@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: variable
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# key: $
-# --
-{$$1}$0

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: try { ... }
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-try {
-  $0
-}

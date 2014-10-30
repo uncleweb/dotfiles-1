@@ -1,5 +1,0 @@
-# -*- coding: utf-8; mode: snippet -*-
-# name: # pylint: disable-msg=...
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-# pylint: disable-msg=$0

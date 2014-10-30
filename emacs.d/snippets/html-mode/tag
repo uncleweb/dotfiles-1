@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: <tag></tag>
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-<${1:element}${2:}>
-  $0
-</$1>

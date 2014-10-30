@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: goog.dom.getElementsByTagNameAndClass(...)
-# key: g$$
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-goog.dom.getElementsByTagNameAndClass($1)$0

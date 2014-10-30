@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: goog.getCssName()
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-goog.getCssName(${1:this.getCssClass()}, '$2')$0

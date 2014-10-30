@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: import statement
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-import (
-  $0
-)

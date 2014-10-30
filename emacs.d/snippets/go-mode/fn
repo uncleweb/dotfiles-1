@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Function (anonymous)
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-func($1) $2 {
-     $0
-}

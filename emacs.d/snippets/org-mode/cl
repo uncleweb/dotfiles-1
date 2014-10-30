@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Change List line
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-http://cl/${1:XXXXXXX}: $0

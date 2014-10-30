@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: (integerp ... ...)
-# key: integerp
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-(integerp $1)$0

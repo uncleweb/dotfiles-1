@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: if(!(...)){...}
-# key: unless
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-if (!(${condition})) {
-  $0
-}

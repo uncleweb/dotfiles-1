@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: (setq ... ...)
-# key: setq
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-(setq ${name} ${value})$0

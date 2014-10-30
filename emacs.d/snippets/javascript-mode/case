@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: case ...: ...
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-case $1:$0
-  break;

@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: else
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-else
-  $0

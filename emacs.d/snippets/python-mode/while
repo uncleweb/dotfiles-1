@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: while ... : ...
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-while ${condition}:
-  $0

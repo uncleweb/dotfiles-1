@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: Note line.
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# key: NOTE
-# --
-// NOTE(${1:`user-login-name`}): $0

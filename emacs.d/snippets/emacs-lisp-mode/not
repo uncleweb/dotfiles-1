@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: (not ...)
-# key: not
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-(not $0)

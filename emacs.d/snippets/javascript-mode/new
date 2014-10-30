@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: new Instance(...);
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-new $1($0)

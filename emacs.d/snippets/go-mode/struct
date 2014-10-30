@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Struct definition
-# contributor: Yesudeep Mangalapilly <yesudeep@google.com>
-# --
-struct {
-     $0
-}
