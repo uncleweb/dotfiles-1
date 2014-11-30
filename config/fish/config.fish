@@ -1,15 +1,18 @@
 if status --is-interactive
+  set EDITOR /usr/local/bin/vim
+
   set PYTHONPATH $PYTHONPATH /usr/local/lib/python2.7/site-packages
-  set GOROOT $HOME/var/go
-  set GOBIN $HOME/var/go/bin
   set NODE_BIN /usr/local/share/npm/bin
   set MYSQL_BIN /usr/local/mysql/bin
-  set EDITOR /usr/local/bin/vim
+
   set GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
- 
+  set GOROOT /usr/local/bhojo-go
+  set GOBIN $GOROOT/bin
+
   # Mac OS X - Homebrew installs here.
-  set PATH /usr/local/opt/go/libexec/bin $PATH
+  # set PATH /usr/local/opt/go/libexec/bin $PATH
   set LOCAL_VAR_BIN $HOME/var/bin
 
-  set PATH $LOCAL_VAR_BIN $GOBIN $GOOGLE_CLOUD_SDK/bin $MYSQL_BIN $NODE_BIN /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /sbin /bin $PATH
+  set PATH /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /sbin /bin $PATH
+  set PATH $LOCAL_VAR_BIN $GOBIN $GOOGLE_CLOUD_SDK/bin $MYSQL_BIN $NODE_BIN $PATH
 end

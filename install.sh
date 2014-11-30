@@ -41,3 +41,4 @@ mkdir -p ~/.config/fish
 ln -s ~/.dotfiles/config/fish/functions ~/.config/fish/functions
 ln -s ~/.dotfiles/config/fish/config.fish ~/.config/fish/config.fish
 ln -s ~/.dotfiles/path_environment ~/.path_environment
+ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
