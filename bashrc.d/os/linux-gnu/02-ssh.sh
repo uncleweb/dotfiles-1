@@ -17,9 +17,6 @@
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
 # Setting up SSH keychain to stop the annoying passphrase prompts.
-if [ -e $HOME/.ssh/id_rsa ]; then
-  eval `keychain --eval ~/.ssh/id_rsa`
-  #redirect ~/.ssh-agent output to /dev/null to zap the annoying
-  #"Agent PID" message
-  #source ~/.ssh-agent > /dev/null
-fi
+for f in $HOME/.ssh/*.pub; do
+  eval `keychain --eval ${f%.*}`
+done
