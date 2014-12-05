@@ -1,6 +1,7 @@
 # Preparation for development environment.
-#export GOROOT=/usr/local/bhojo/go
-#export GOROOT_FINAL=$GOROOT
-#export GOPATH=/usr/local/bhojo/golib
-#export PATH=$HOME/var/bin:$GOPATH/bin:$GOROOT/bin:$HOME/google-cloud-sdk/bin:$PATH
-export PATH=$HOME/var/bin:$HOME/google-cloud-sdk/bin:$PATH
+
+# Somehow the stupid system overrides these. Keep them here for our
+# installation to work.
+export GOROOT=/usr/local/bhojo/go
+export GOPATH=/usr/local/bhojo/golib
+export PATH=$HOME/var/bin:$GOPATH/bin:$GOROOT/bin:$HOME/google-cloud-sdk/bin:$PATH
