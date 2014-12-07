@@ -13,5 +13,18 @@ export GOPATH=/usr/local/bhojo/golib
 DART_SDK=$HOME/dart-sdk
 
 # Set the path environment now.
-export PATH=$DART_SDK/bin:$GOPATH/bin:$GOROOT/bin:$GOOGLE_CLOUD_SDK/bin:$PATH
-export PATH=$HOME/var/bin:$PATH
+# WARNING: Please note that the whitespace at the beginning and ends of each of
+# the following lines matters. Edit carefully.
+export PATH=\
+$HOME/var/bin:\
+$GOOGLE_CLOUD_SDK/bin:\
+$DART_SDK/bin:\
+$GOPATH/bin:\
+$GOROOT/bin:\
+/usr/local/bin:\
+/usr/bin:\
+/bin:\
+/usr/local/sbin:\
+/usr/sbin:\
+/sbin:\
+$PATH
