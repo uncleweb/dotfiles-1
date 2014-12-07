@@ -30,6 +30,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'uarun/vim-protobuf'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'

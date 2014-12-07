@@ -23,9 +23,7 @@ git submodule update --init --recursive
 # Vim configuration.
 VIM_DIR=${HOME}/.vim
 
-
 ln -s ${PWD}/vimrc ${HOME}/.vimrc
-# ln -s ${PWD}/vim ${HOME}/.vim
 ln -s ${PWD}/hgrc ${HOME}/.hgrc
 
 echo "Please install cmake"
@@ -42,3 +40,5 @@ cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer
 mkdir -p ~/.config/fish
 ln -s ~/.dotfiles/config/fish/functions ~/.config/fish/functions
 ln -s ~/.dotfiles/config/fish/config.fish ~/.config/fish/config.fish
+ln -s ~/.dotfiles/path_environment ~/.path_environment
+ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
