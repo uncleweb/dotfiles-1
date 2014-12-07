@@ -17,6 +17,8 @@
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
 # Setting up SSH keychain to stop the annoying passphrase prompts.
-for f in $HOME/.ssh/*.pub; do
-  eval `keychain --eval ${f%.*}`
-done
+if [ command -v 'keychain' &> /dev/null ]; then
+  for f in $HOME/.ssh/*.pub; do
+    eval `keychain --eval ${f%.*}`
+  done
+fi
