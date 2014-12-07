@@ -10,4 +10,4 @@ sudo chown yesudeep \
   /usr/local/sbin \
   /usr/local/include/osxfuse/fuse \
   /usr/local/include/osxfuse \
-  /usr/local/go
+  /usr/local/share/pkgconfig
