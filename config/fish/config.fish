@@ -2,15 +2,15 @@ if status --is-interactive
   set EDITOR /usr/local/bin/vim
 
   # Google Cloud SDK installation directory.
-  set GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
+  set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
 
   # Google Go installation directory.
   set -x GOROOT /usr/local/bhojo/go
   set -x GOPATH /usr/local/bhojo/golib
 
   # Google Dart installation directory.
-  set DART_SDK $HOME/dart-sdk
-  
+  set -x DART_SDK $HOME/dart-sdk
+
   # Now set the correct PATH environment variable.
   set -x PATH \
     $HOME/var/bin \
