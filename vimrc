@@ -206,6 +206,8 @@ au FileType * autocmd BufWritePre <buffer> :call TrimEndBlankLines()
 " Keyboard bindings.
 " ----------------------------------------------------------------------------
 
+nnoremap ; :
+
 " Clear the last search highlighting in vim.
 " See: https://coderwall.com/p/pcha8g
 " Don't do this.
