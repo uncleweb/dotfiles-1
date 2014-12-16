@@ -2,6 +2,11 @@
 " Vim configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Ensure that vim uses the bash shell.
+if $SHELL =~ 'fish'
+  set shell='/bin/bash'
+endif
+
 set nocompatible    " don't be compatible with vi
 filetype on         " turn it on, then off. breaks git commits otherwise.
 filetype off        " required by vundle.
@@ -372,6 +377,10 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
 
 " Map start key separately from next key
 "let g:multi_cursor_start_key='<C-}>'
