@@ -358,6 +358,11 @@ nmap <leader>bl :ls<CR>
 
 " Go lang.
 let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
 
 au FileType go nmap <Leader>s <Plug>(go-implements)   " interfaces implemented
 au FileType go nmap <Leader>i <Plug>(go-info)         " show type info
@@ -378,9 +383,6 @@ au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
 
 " Map start key separately from next key
 "let g:multi_cursor_start_key='<C-}>'
