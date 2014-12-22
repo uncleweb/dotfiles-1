@@ -21,6 +21,9 @@
 # defined in OS-specific shell-scripts.
 
 # Because not having my configuration when editing system configuration sucks!
-svim() { 
-  sudo vim -u $HOME/.vimrc @$ 
+svim() {
+  sudo vim -u $HOME/.vimrc @$
 };
+
+
+alias gtop='git rev-parse --show-toplevel'

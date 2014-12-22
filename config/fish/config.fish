@@ -25,4 +25,10 @@ if status --is-interactive
     /usr/sbin \
     /sbin \
     $PATH
+
+
+  function gtop
+    set top_dir (git rev-parse --show-toplevel)
+    printf "%s" $top_dir
+  end
 end
