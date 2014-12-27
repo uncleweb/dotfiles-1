@@ -36,6 +36,7 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'uarun/vim-protobuf'
+Plug 'Rykka/riv.vim'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
