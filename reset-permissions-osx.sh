@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo chown yesudeep \
+sudo chown $USER \
   /usr/local \
   /usr/local/.git \
   /usr/local/bin \
