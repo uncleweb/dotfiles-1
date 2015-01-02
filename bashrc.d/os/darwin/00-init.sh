@@ -33,7 +33,7 @@
 # we call this. Ensure the order of loading shell scripts in
 # ~/.dotfiles/bachrc is correct if this doesn't work. That is,
 # ~/.path_environment should be sourced before anything else.
-launchctl setenv PATH $PATH
+# launchctl setenv PATH $PATH
 
 # Now we need a way to keep the launchd path in sync with
 # shell $PATH system-wide. Something to edit /etc/launchd.conf
