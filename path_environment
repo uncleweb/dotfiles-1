@@ -1,7 +1,7 @@
 # Preparation for development environment.
 
 # Google Cloud SDK.
-GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
+export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 
 # Google Go language SDK.
 # Somehow the stupid system overrides these. Keep them here for our
@@ -10,7 +10,7 @@ export GOROOT=/usr/local/bhojo/go
 export GOPATH=/usr/local/bhojo/golib
 
 # Google Dart SDK
-DART_SDK=$HOME/dart-sdk
+export DART_SDK=$HOME/dart-sdk
 
 # Set the path environment now.
 # WARNING: Please note that the whitespace at the beginning and ends of each of

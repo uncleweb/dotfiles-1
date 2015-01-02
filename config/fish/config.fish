@@ -1,16 +1,19 @@
 if status --is-interactive
+  set -x LC_ALL en_US.UTF-8 
+  set -x LANG en_US.UTF-8 
+  
   set EDITOR /usr/local/bin/vim
 
   # Google Cloud SDK installation directory.
-  set GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
+  set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
 
   # Google Go installation directory.
   set -x GOROOT /usr/local/bhojo/go
   set -x GOPATH /usr/local/bhojo/golib
 
   # Google Dart installation directory.
-  set DART_SDK $HOME/dart-sdk
-  
+  set -x DART_SDK $HOME/dart-sdk
+
   # Now set the correct PATH environment variable.
   set -x PATH \
     $HOME/var/bin \
@@ -25,4 +28,10 @@ if status --is-interactive
     /usr/sbin \
     /sbin \
     $PATH
+
+
+  function gtop
+    set top_dir (git rev-parse --show-toplevel)
+    printf "%s" $top_dir
+  end
 end

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright 2012 Google Inc.
+# Copyright 2014 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,14 +16,6 @@
 #
 # Author: yesudeep@google.com (Yesudeep Mangalapilly)
 
-# Note:
-# Many aliases are portably and functionally equivalently
-# defined in OS-specific shell-scripts.
-
-# Because not having my configuration when editing system configuration sucks!
-svim() {
-  sudo vim -u $HOME/.vimrc @$
-};
-
-
-alias gtop='git rev-parse --show-toplevel'
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi

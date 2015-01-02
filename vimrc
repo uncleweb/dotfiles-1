@@ -2,6 +2,11 @@
 " Vim configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Ensure that vim uses the bash shell.
+if $SHELL =~ 'fish'
+  set shell='/bin/bash'
+endif
+
 set nocompatible    " don't be compatible with vi
 filetype on         " turn it on, then off. breaks git commits otherwise.
 filetype off        " required by vundle.
@@ -31,6 +36,7 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'uarun/vim-protobuf'
+Plug 'Rykka/riv.vim'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
@@ -206,6 +212,8 @@ au FileType * autocmd BufWritePre <buffer> :call TrimEndBlankLines()
 " Keyboard bindings.
 " ----------------------------------------------------------------------------
 
+nnoremap ; :
+
 " Clear the last search highlighting in vim.
 " See: https://coderwall.com/p/pcha8g
 " Don't do this.
@@ -351,6 +359,11 @@ nmap <leader>bl :ls<CR>
 
 " Go lang.
 let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
 
 au FileType go nmap <Leader>s <Plug>(go-implements)   " interfaces implemented
 au FileType go nmap <Leader>i <Plug>(go-info)         " show type info
@@ -369,6 +382,7 @@ au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
 
 
 " Map start key separately from next key
