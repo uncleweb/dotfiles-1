@@ -4,6 +4,9 @@ if status --is-interactive
   
   set EDITOR /usr/local/bin/vim
 
+  # Android SDK
+  set -x GOOGLE_ANDROID_SDK $HOME/Library/Android/sdk
+
   # Google Cloud SDK installation directory.
   set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
 
@@ -18,6 +21,8 @@ if status --is-interactive
   set -x PATH \
     $HOME/var/bin \
     $GOOGLE_CLOUD_SDK/bin \
+    $GOOGLE_ANDROID_SDK/tools \
+    $GOOGLE_ANDROID_SDK/platform-tools \
     $DART_SDK/bin \
     $GOPATH/bin \
     $GOROOT/bin \
