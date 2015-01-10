@@ -1,6 +1,6 @@
 # Preparation for development environment.
 
-# Google Android SDK
+# Google Android SDK.
 export GOOGLE_ANDROID_SDK=$HOME/Library/Android/sdk
 
 # Google Cloud SDK.
@@ -23,6 +23,8 @@ $HOME/var/bin:\
 $GOOGLE_ANDROID_SDK/platform-tools:\
 $GOOGLE_ANDROID_SDK/tools:\
 $GOOGLE_CLOUD_SDK/bin:\
+$GOOGLE_ANDROID_SDK/tools:\
+$GOOGLE_ANDROID_SDK/platform-tools:\
 $DART_SDK/bin:\
 $GOPATH/bin:\
 $GOROOT/bin:\

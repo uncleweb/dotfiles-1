@@ -37,6 +37,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'uarun/vim-protobuf'
 Plug 'Rykka/riv.vim'
+Plug 'neo4j-contrib/cypher-vim-syntax'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'

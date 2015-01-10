@@ -6,8 +6,7 @@ if status --is-interactive
 
   # Google Android SDK Path.
   set -x GOOGLE_ANDROID_SDK $HOME/Library/Android/sdk
-
-
+  
   # Google Cloud SDK installation directory.
   set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
 
@@ -24,6 +23,8 @@ if status --is-interactive
     $GOOGLE_ANDROID_SDK/platform-tools \
     $GOOGLE_ANDROID_SDK/tools \
     $GOOGLE_CLOUD_SDK/bin \
+    $GOOGLE_ANDROID_SDK/tools \
+    $GOOGLE_ANDROID_SDK/platform-tools \
     $DART_SDK/bin \
     $GOPATH/bin \
     $GOROOT/bin \
