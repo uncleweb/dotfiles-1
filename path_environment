@@ -1,5 +1,8 @@
 # Preparation for development environment.
 
+# Google Android SDK
+export GOOGLE_ANDROID_SDK=$HOME/Library/Android/sdk
+
 # Google Cloud SDK.
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 
@@ -17,6 +20,8 @@ export DART_SDK=$HOME/dart-sdk
 # the following lines matters. Edit carefully.
 export PATH=\
 $HOME/var/bin:\
+$GOOGLE_ANDROID_SDK/platform-tools:\
+$GOOGLE_ANDROID_SDK/tools:\
 $GOOGLE_CLOUD_SDK/bin:\
 $DART_SDK/bin:\
 $GOPATH/bin:\
