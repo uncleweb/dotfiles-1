@@ -5,7 +5,8 @@ if status --is-interactive
   set EDITOR /usr/local/bin/vim
 
   # Google Android SDK Path.
-  set -x GOOGLE_ANDROID_SDK $HOME/Library/Android/sdk
+  # Buck requires this to be exported to avoid hardcoding in the repository.
+  set -x ANDROID_SDK $HOME/Library/Android/sdk
   
   # Google Cloud SDK installation directory.
   set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
@@ -20,11 +21,9 @@ if status --is-interactive
   # Now set the correct PATH environment variable.
   set -x PATH \
     $HOME/var/bin \
-    $GOOGLE_ANDROID_SDK/platform-tools \
-    $GOOGLE_ANDROID_SDK/tools \
+    $ANDROID_SDK/platform-tools \
+    $ANDROID_SDK/tools \
     $GOOGLE_CLOUD_SDK/bin \
-    $GOOGLE_ANDROID_SDK/tools \
-    $GOOGLE_ANDROID_SDK/platform-tools \
     $DART_SDK/bin \
     $GOPATH/bin \
     $GOROOT/bin \
