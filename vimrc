@@ -38,6 +38,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'uarun/vim-protobuf'
 Plug 'Rykka/riv.vim'
 Plug 'neo4j-contrib/cypher-vim-syntax'
+Plug 'jceb/vim-orgmode'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
