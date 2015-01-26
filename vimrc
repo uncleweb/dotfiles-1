@@ -45,6 +45,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'kien/ctrlp.vim'
+Plug 'andrep/vimacs'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -427,3 +428,5 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
+
+let g:VM_Enabled = 1
