@@ -21,6 +21,52 @@
 # 2. http://jonmaddox.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 # 3. http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
 
+# Shell-escapes color codes given as arguments.
+#
+# :param 1:
+#    Color code.
+# :returns:
+#    Shell-escaped color code.
+function escape() {
+  echo "\[\033[$1\]"
+}
+
+# Formatting
+FORMAT_BOLD_ON=$(escape 1m)
+FORMAT_BOLD_OFF=$(escape 22m)
+FORMAT_BLINK_ON=$(escape 5m)
+FORMAT_BLINK_OFF=$(escape 25m)
+FORMAT_REVERSE_ON=$(escape 7m)
+FORMAT_REVERSE_OFF=$(escape 27m)
+
+# Colors based on http://pastie.org/154354
+# COLOR_NAME='\[\033[ color_code m\]'
+COLOR_RESET=$(escape 0m)
+
+# Foreground colors
+COLOR_FG_DEFAULT=$(escape 39m)
+COLOR_FG_BLACK=$(escape 30m)
+COLOR_FG_RED=$(escape 31m)
+COLOR_FG_GREEN=$(escape 32m)
+COLOR_FG_BROWN=$(escape 33m)
+COLOR_FG_BLUE=$(escape 34m)
+COLOR_FG_PURPLE=$(escape "35m")
+COLOR_FG_MAGENTA=$(escape "1;35m")
+COLOR_FG_CYAN=$(escape 36m)
+COLOR_FG_WHITE=$(escape 37m)
+
+# Background colors
+COLOR_BG_DEFAULT=$(escape 49m)
+COLOR_BG_BLACK=$(escape 40m)
+COLOR_BG_RED=$(escape 41m)
+COLOR_BG_GREEN=$(escape 42m)
+COLOR_BG_BROWN=$(escape 43m)
+COLOR_BG_BLUE=$(escape 44m)
+COLOR_BG_PURPLE=$(escape 45m)
+COLOR_BG_MAGENTA=$(escape "1;45m")
+COLOR_BG_CYAN=$(escape 46m)
+COLOR_BG_WHITE=$(escape 47m)
+
 
 function is_submodule() {
   local git_dir parent_git module_name path strip
@@ -144,52 +190,6 @@ function parse_vc_branch {
   svn info > /dev/null 2>&1 && parse_svn_revision && return
 }
 
-# Shell-escapes color codes given as arguments.
-#
-# :param 1:
-#    Color code.
-# :returns:
-#    Shell-escaped color code.
-function escape() {
-  echo "\[\033[$1\]"
-}
-
-# Formatting
-FORMAT_BOLD_ON=$(escape 1m)
-FORMAT_BOLD_OFF=$(escape 22m)
-FORMAT_BLINK_ON=$(escape 5m)
-FORMAT_BLINK_OFF=$(escape 25m)
-FORMAT_REVERSE_ON=$(escape 7m)
-FORMAT_REVERSE_OFF=$(escape 27m)
-
-# Colors based on http://pastie.org/154354
-# COLOR_NAME='\[\033[ color_code m\]'
-COLOR_RESET=$(escape 0m)
-
-# Foreground colors
-COLOR_FG_DEFAULT=$(escape 39m)
-COLOR_FG_BLACK=$(escape 30m)
-COLOR_FG_RED=$(escape 31m)
-COLOR_FG_GREEN=$(escape 32m)
-COLOR_FG_BROWN=$(escape 33m)
-COLOR_FG_BLUE=$(escape 34m)
-COLOR_FG_PURPLE=$(escape "35m")
-COLOR_FG_MAGENTA=$(escape "1;35m")
-COLOR_FG_CYAN=$(escape 36m)
-COLOR_FG_WHITE=$(escape 37m)
-
-# Background colors
-COLOR_BG_DEFAULT=$(escape 49m)
-COLOR_BG_BLACK=$(escape 40m)
-COLOR_BG_RED=$(escape 41m)
-COLOR_BG_GREEN=$(escape 42m)
-COLOR_BG_BROWN=$(escape 43m)
-COLOR_BG_BLUE=$(escape 44m)
-COLOR_BG_PURPLE=$(escape 45m)
-COLOR_BG_MAGENTA=$(escape "1;45m")
-COLOR_BG_CYAN=$(escape 46m)
-COLOR_BG_WHITE=$(escape 47m)
-
 function _proml {
   if [ $(id -u) -eq 0 ]
   then
@@ -214,7 +214,7 @@ function _proml {
   PS1="
 ${TITLEBAR}${COLOR_FG_GREEN}\d \@ [\t]${COLOR_RESET} ${COLOR_FG_RED}\u${COLOR_RESET}@${COLOR_FG_CYAN}\H${COLOR_RESET}
 ${COLOR_FG_BLUE}\w${COLOR_RESET}
-${COLOR_FG_PURPLE}\$(parse_vc_branch)${COLOR_RESET}${COLOR_FG_USR}${DOLLAR}${COLOR_RESET} "
+${COLOR_FG_MAGENTA}\$(parse_vc_branch)${COLOR_RESET}${COLOR_FG_USR}${DOLLAR}${COLOR_RESET} "
   PS2='> '
   PS4='+ '
 }
