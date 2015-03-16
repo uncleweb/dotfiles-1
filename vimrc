@@ -27,7 +27,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'Lokaltog/powerline'
 Plug 'bling/vim-airline'
 Plug 'mbbill/undotree'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 
 " Language-specific
