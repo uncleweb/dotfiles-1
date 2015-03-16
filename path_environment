@@ -4,6 +4,9 @@
 # Buck requires this to be defined and exported to avoid hardcoding in repo.
 export ANDROID_SDK=$HOME/Library/Android/sdk
 
+# Gradle requires this.
+export ANDROID_HOME=$ANDROID_SDK
+
 # Google Cloud SDK.
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 
