@@ -7,6 +7,8 @@ if status --is-interactive
   # Google Android SDK Path.
   # Buck requires this to be exported to avoid hardcoding in the repository.
   set -x ANDROID_SDK $HOME/Library/Android/sdk
+  # Gradle requires this.
+  set -x ANDROID_HOME $ANDROID_SDK
 
   # Google Cloud SDK installation directory.
   set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
