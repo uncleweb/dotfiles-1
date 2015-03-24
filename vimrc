@@ -2,6 +2,10 @@
 " Vim configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" OS X Mavericks. VIM installation procedure:
+" http://benfrain.com/compiling-custom-vim-source-os-x-10-9-mavericks/
+
+
 " Ensure that vim uses the bash shell.
 if $SHELL =~ 'fish'
   set shell='/bin/bash'
