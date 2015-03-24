@@ -233,11 +233,11 @@ nnoremap <silent><leader>n :set relativenumber!<cr>
 
 " Fast save.
 nmap <leader>w :w!<CR>
-nmap <leader>W :wq<CR>
+nmap <leader>ww :wq<CR>
 
 " Quit window.
 nmap <leader>q :q<CR>
-nmap <leader>Q :qa!<CR>
+nmap <leader>qq :qa!<CR>
 
 " Paste from clipboard.
 nmap <leader>P "+p
