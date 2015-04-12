@@ -289,8 +289,8 @@ map <s-F7> yyp!!sh<CR><ESC>
 " Clipboard.
 " ----------------------------------------------------------------------------
 " set paste                       " Don't automatically indent pastes.
-set pastetoggle=<F2>            " Allow toggling paste.
-set clipboard+=unnamedplus
+" set pastetoggle=<F2>            " Allow toggling paste.
+" set clipboard+=unnamedplus
 
 
 " ----------------------------------------------------------------------------
