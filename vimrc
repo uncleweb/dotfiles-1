@@ -35,21 +35,21 @@ Plug 'mbbill/undotree'
 Plug 'terryma/vim-multiple-cursors'
 
 " Language-specific
-Plug 'dart-lang/dart-vim-plugin'
+" Plug 'dart-lang/dart-vim-plugin'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'uarun/vim-protobuf'
-Plug 'Rykka/riv.vim'
+Plug 'Rykka/riv.vim'  " restructured text
 Plug 'neo4j-contrib/cypher-vim-syntax'
 Plug 'jceb/vim-orgmode'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'kien/ctrlp.vim'
-Plug 'andrep/vimacs'
+" Plug 'andrep/vimacs'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -59,7 +59,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'go.weekly.2012-03-13', 'rtp': 'vim' }
+Plug 'nsf/gocode', { 'rtp': 'vim/' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
