@@ -46,7 +46,8 @@ Plug 'jceb/vim-orgmode'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
 " Plug 'SirVer/ultisnips'
 Plug 'kien/ctrlp.vim'
 " Plug 'andrep/vimacs'
@@ -435,3 +436,5 @@ if exists(":Tabularize")
 endif
 
 let g:VM_Enabled = 1
+
+let delimitMate_expand_cr = 1
