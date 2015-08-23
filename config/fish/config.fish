@@ -12,10 +12,13 @@ if status --is-interactive
 
   # Google Cloud SDK installation directory.
   set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
+  set -x GOOGLE_GO_APP_ENGINE_SDK $HOME/go_appengine
 
   # Google Go installation directory.
-  set -x GOROOT /usr/local/bhojo/go
-  set -x GOPATH /usr/local/bhojo/golib
+  set -x GOROOT /usr/local/go
+  set -x GOPATH /usr/local/golib
+
+  set -x BURROW $HOME/burrow
 
   # Google Dart installation directory.
   set -x DART_SDK $HOME/dart-sdk
@@ -25,6 +28,7 @@ if status --is-interactive
     $HOME/var/bin \
     $ANDROID_SDK/platform-tools \
     $ANDROID_SDK/tools \
+    $GOOGLE_GO_APP_ENGINE_SDK \
     $GOOGLE_CLOUD_SDK/bin \
     $DART_SDK/bin \
     $GOPATH/bin \
