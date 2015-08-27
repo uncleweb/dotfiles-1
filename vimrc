@@ -43,6 +43,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'Rykka/riv.vim'  " restructured text
 Plug 'neo4j-contrib/cypher-vim-syntax'
 Plug 'jceb/vim-orgmode'
+Plug 'lervag/vimtex'
 
 " Completion and suggestions.
 Plug 'Valloric/YouCompleteMe'
