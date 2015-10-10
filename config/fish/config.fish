@@ -9,7 +9,7 @@ if status --is-interactive
   set -x ANDROID_SDK $HOME/Library/Android/sdk
   # Gradle requires this.
   set -x ANDROID_HOME $ANDROID_SDK
-
+  
   # Google Cloud SDK installation directory.
   set -x GOOGLE_CLOUD_SDK $HOME/google-cloud-sdk
   set -x GOOGLE_GO_APP_ENGINE_SDK $HOME/go_appengine
@@ -33,6 +33,7 @@ if status --is-interactive
     $DART_SDK/bin \
     $GOPATH/bin \
     $GOROOT/bin \
+    /usr/local/mysql/bin \
     /usr/local/bin \
     /usr/bin \
     /bin \

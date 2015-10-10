@@ -25,6 +25,7 @@ export BURROW=$HOME/burrow
 # Google Dart SDK
 export DART_SDK=$HOME/dart-sdk
 
+
 # Set the path environment now.
 # WARNING: Please note that the whitespace at the beginning and ends of each of
 # the following lines matters. Edit carefully.
@@ -37,6 +38,7 @@ $GOOGLE_CLOUD_SDK/bin:\
 $DART_SDK/bin:\
 $GOPATH/bin:\
 $GOROOT/bin:\
+/usr/local/mysql/bin:\
 /usr/local/bin:\
 /usr/bin:\
 /bin:\
