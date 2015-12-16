@@ -104,6 +104,8 @@ set modelines=5              " Lines within which modelines can be found.
 " ----------------------------------------------------------------------------
 syntax enable                   " enable syntax processing
 
+set nofoldenable                " disable folding
+
 set number                      " show line numbers
 set relativenumber              " show relative numbering
 set showcmd                     " show command in bottom bar
