@@ -25,6 +25,7 @@ VIM_DIR=${HOME}/.vim
 
 ln -s ${PWD}/vimrc ${HOME}/.vimrc
 ln -s ${PWD}/hgrc ${HOME}/.hgrc
+ln -s ${PWD}/eclimrc ${HOME}/.eclimrc
 
 echo "Please install cmake"
 mkdir -p ${VIM_DIR}/autoload ${VIM_DIR}/ftplugin
