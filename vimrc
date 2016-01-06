@@ -6,9 +6,14 @@
 " http://benfrain.com/compiling-custom-vim-source-os-x-10-9-mavericks/
 
 
+" See: https://github.com/fatih/vim-go/issues/30
 " Ensure that vim uses the bash shell.
-if $SHELL =~ 'fish'
-  set shell='/bin/bash'
+" if $SHELL =~ 'fish'
+"  set shell=sh
+" endif
+
+if &shell =~# 'fish$'
+  set shell=sh
 endif
 
 set nocompatible    " don't be compatible with vi
