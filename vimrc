@@ -197,6 +197,8 @@ set shiftround            " Indenting with < and > is times shiftwidth.
 set backspace=eol,start,indent  " Tell backspace to behave.
 set whichwrap+=<,>,h,l
 
+au FileType python setl sw=2 sts=2 et
+
 " " Show trailing whitespace.
 " if has("autocmd")
 "   autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
