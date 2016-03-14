@@ -15,13 +15,17 @@ if status --is-interactive
   set -x GOOGLE_GO_APP_ENGINE_SDK $HOME/go_appengine
 
   # Google Go installation directory.
-  set -x GOROOT /usr/local/go
+  # set -x GOROOT /usr/local/go
   set -x GOPATH /usr/local/golib
 
   set -x BURROW $HOME/burrow
 
   # Google Dart installation directory.
   set -x DART_SDK $HOME/dart-sdk
+
+  # Java Home.
+  # set -x JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
+  set -x JAVA_HOME=(/usr/libexec/java_home -v 1.7)
 
   # Now set the correct PATH environment variable.
   set -x PATH \
@@ -33,7 +37,6 @@ if status --is-interactive
     $GOOGLE_CLOUD_SDK/bin \
     $DART_SDK/bin \
     $GOPATH/bin \
-    $GOROOT/bin \
     /usr/local/mysql/bin \
     /usr/local/bin \
     /usr/bin \
