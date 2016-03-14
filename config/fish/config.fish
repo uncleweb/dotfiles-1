@@ -25,6 +25,7 @@ if status --is-interactive
 
   # Now set the correct PATH environment variable.
   set -x PATH \
+    $HOME/bin \
     $HOME/var/bin \
     $ANDROID_SDK/platform-tools \
     $ANDROID_SDK/tools \
