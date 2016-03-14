@@ -30,6 +30,7 @@ export DART_SDK=$HOME/dart-sdk
 # WARNING: Please note that the whitespace at the beginning and ends of each of
 # the following lines matters. Edit carefully.
 export PATH=\
+$HOME/bin:\
 $HOME/var/bin:\
 $ANDROID_SDK/platform-tools:\
 $ANDROID_SDK/tools:\
