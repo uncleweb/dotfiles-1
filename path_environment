@@ -22,10 +22,6 @@ export GOPATH=/usr/local/golib
 
 export BURROW=$HOME/burrow
 
-# Google Dart SDK
-export DART_SDK=$HOME/dart-sdk
-
-
 # Set the path environment now.
 # WARNING: Please note that the whitespace at the beginning and ends of each of
 # the following lines matters. Edit carefully.
@@ -36,7 +32,7 @@ $ANDROID_SDK/platform-tools:\
 $ANDROID_SDK/tools:\
 $GOOGLE_GO_APP_ENGINE_SDK:\
 $GOOGLE_CLOUD_SDK/bin:\
-$DART_SDK/bin:\
+/usr/local/go:\
 $GOPATH/bin:\
 /usr/local/mysql/bin:\
 /usr/local/bin:\
