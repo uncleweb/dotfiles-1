@@ -5,12 +5,12 @@
 " OS X Mavericks. VIM installation procedure:
 " http://benfrain.com/compiling-custom-vim-source-os-x-10-9-mavericks/
 
-
 " See: https://github.com/fatih/vim-go/issues/30
 " Ensure that vim uses the bash shell.
 " if $SHELL =~ 'fish'
 "  set shell=sh
 " endif
+
 
 if &shell =~# 'fish$'
   set shell=sh
@@ -254,7 +254,9 @@ nmap <leader>q :q<CR>
 nmap <leader>qq :qa!<CR>
 
 " Paste from clipboard.
-nmap <leader>P "+p
+nmap <leader>v "+p
+" nmap <leader>c "+yy
+vmap <leader>c "+yy
 
 " Edit and reload vim configuration.
 nmap <leader>ve :tabedit $MYVIMRC<CR>
