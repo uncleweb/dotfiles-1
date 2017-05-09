@@ -18,7 +18,7 @@ export GOOGLE_GO_APP_ENGINE_SDK=$HOME/go_appengine
 # Somehow the stupid system overrides these. Keep them here for our
 # installation to work.
 # export GOROOT=/usr/local/go
-export GOPATH=/usr/local/golib
+# export GOPATH=/usr/local/golib
 
 export BURROW=$HOME/burrow
 
@@ -28,6 +28,7 @@ export BURROW=$HOME/burrow
 export PATH=\
 $HOME/bin:\
 $HOME/var/bin:\
+$HOME/go/bin:\
 $ANDROID_SDK/platform-tools:\
 $ANDROID_SDK/tools:\
 $GOOGLE_GO_APP_ENGINE_SDK:\

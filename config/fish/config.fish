@@ -16,7 +16,7 @@ if status --is-interactive
 
   # Google Go installation directory.
   # set -x GOROOT /usr/local/go
-  set -x GOPATH /usr/local/golib
+  # set -x GOPATH /usr/local/golib
 
   set -x BURROW $HOME/burrow
 
@@ -28,6 +28,7 @@ if status --is-interactive
   set -x PATH \
     $HOME/bin \
     $HOME/var/bin \
+    $HOME/go/bin \
     $ANDROID_SDK/platform-tools \
     $ANDROID_SDK/tools \
     $GOOGLE_GO_APP_ENGINE_SDK \
