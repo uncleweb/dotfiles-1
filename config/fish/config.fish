@@ -28,13 +28,12 @@ if status --is-interactive
   set -x PATH \
     $HOME/bin \
     $HOME/var/bin \
-    $HOME/go/bin \
     $ANDROID_SDK/platform-tools \
     $ANDROID_SDK/tools \
     $GOOGLE_GO_APP_ENGINE_SDK \
     $GOOGLE_CLOUD_SDK/bin \
     /usr/local/go/bin \
-    $GOPATH/bin \
+    $HOME/go/bin \
     /usr/local/mysql/bin \
     /usr/local/bin \
     /usr/bin \
